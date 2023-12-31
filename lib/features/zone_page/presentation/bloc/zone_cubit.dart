@@ -26,28 +26,22 @@ class ZoneCubit extends Cubit<ZoneState> {
     emit(const ZoneState.initial());
   }
 
-
-  Future<void> fetchZones() async{
+  Stream<List<FactoryZone>> fetchZones() async*{
     emit(const ZoneState.lookingForZone());
     final result = await fetchZoneUseCase();
-    result.fold((failed){
+    yield*  result.fold((failed){
       emit(const ZoneState.zonePageError('Błąd'));
+      return Stream.value([]);
     }, (result){
-      result.listen((event) {
-        if(event.isEmpty){
-          emit(const ZoneState.zonePageIsEmpty('Pusto'));
-        }else{
-          emit(ZoneState.zoneStateHasData(event));
-
-        }
-      });
+      emit(const ZoneState.zoneStateHasData());
+      return result;
+      // result.listen((event) {
+      //   if(event.isEmpty){
+      //     emit(const ZoneState.zonePageIsEmpty('Pusto'));
+      //   }else{
+      //     emit(ZoneState.zoneStateHasData(event));
+      //   }
+      // });
     });
   }
-
-  @override
-  Future<void> close() {
-    fetchZones();
-    return super.close();
-  }
-
 }

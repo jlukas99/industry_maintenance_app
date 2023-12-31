@@ -21,7 +21,7 @@ mixin _$ZoneState {
     required TResult Function() initial,
     required TResult Function() lookingForZone,
     required TResult Function(String message) zonePageIsEmpty,
-    required TResult Function(List<FactoryZone> zoneList) zoneStateHasData,
+    required TResult Function() zoneStateHasData,
     required TResult Function(String message) zonePageError,
     required TResult Function() addZoneButtonPressed,
   }) =>
@@ -31,7 +31,7 @@ mixin _$ZoneState {
     TResult? Function()? initial,
     TResult? Function()? lookingForZone,
     TResult? Function(String message)? zonePageIsEmpty,
-    TResult? Function(List<FactoryZone> zoneList)? zoneStateHasData,
+    TResult? Function()? zoneStateHasData,
     TResult? Function(String message)? zonePageError,
     TResult? Function()? addZoneButtonPressed,
   }) =>
@@ -41,7 +41,7 @@ mixin _$ZoneState {
     TResult Function()? initial,
     TResult Function()? lookingForZone,
     TResult Function(String message)? zonePageIsEmpty,
-    TResult Function(List<FactoryZone> zoneList)? zoneStateHasData,
+    TResult Function()? zoneStateHasData,
     TResult Function(String message)? zonePageError,
     TResult Function()? addZoneButtonPressed,
     required TResult orElse(),
@@ -138,7 +138,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() lookingForZone,
     required TResult Function(String message) zonePageIsEmpty,
-    required TResult Function(List<FactoryZone> zoneList) zoneStateHasData,
+    required TResult Function() zoneStateHasData,
     required TResult Function(String message) zonePageError,
     required TResult Function() addZoneButtonPressed,
   }) {
@@ -151,7 +151,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? lookingForZone,
     TResult? Function(String message)? zonePageIsEmpty,
-    TResult? Function(List<FactoryZone> zoneList)? zoneStateHasData,
+    TResult? Function()? zoneStateHasData,
     TResult? Function(String message)? zonePageError,
     TResult? Function()? addZoneButtonPressed,
   }) {
@@ -164,7 +164,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? lookingForZone,
     TResult Function(String message)? zonePageIsEmpty,
-    TResult Function(List<FactoryZone> zoneList)? zoneStateHasData,
+    TResult Function()? zoneStateHasData,
     TResult Function(String message)? zonePageError,
     TResult Function()? addZoneButtonPressed,
     required TResult orElse(),
@@ -264,7 +264,7 @@ class _$LookingForZoneImpl implements _LookingForZone {
     required TResult Function() initial,
     required TResult Function() lookingForZone,
     required TResult Function(String message) zonePageIsEmpty,
-    required TResult Function(List<FactoryZone> zoneList) zoneStateHasData,
+    required TResult Function() zoneStateHasData,
     required TResult Function(String message) zonePageError,
     required TResult Function() addZoneButtonPressed,
   }) {
@@ -277,7 +277,7 @@ class _$LookingForZoneImpl implements _LookingForZone {
     TResult? Function()? initial,
     TResult? Function()? lookingForZone,
     TResult? Function(String message)? zonePageIsEmpty,
-    TResult? Function(List<FactoryZone> zoneList)? zoneStateHasData,
+    TResult? Function()? zoneStateHasData,
     TResult? Function(String message)? zonePageError,
     TResult? Function()? addZoneButtonPressed,
   }) {
@@ -290,7 +290,7 @@ class _$LookingForZoneImpl implements _LookingForZone {
     TResult Function()? initial,
     TResult Function()? lookingForZone,
     TResult Function(String message)? zonePageIsEmpty,
-    TResult Function(List<FactoryZone> zoneList)? zoneStateHasData,
+    TResult Function()? zoneStateHasData,
     TResult Function(String message)? zonePageError,
     TResult Function()? addZoneButtonPressed,
     required TResult orElse(),
@@ -417,7 +417,7 @@ class _$ZonePageIsEmptyImpl implements _ZonePageIsEmpty {
     required TResult Function() initial,
     required TResult Function() lookingForZone,
     required TResult Function(String message) zonePageIsEmpty,
-    required TResult Function(List<FactoryZone> zoneList) zoneStateHasData,
+    required TResult Function() zoneStateHasData,
     required TResult Function(String message) zonePageError,
     required TResult Function() addZoneButtonPressed,
   }) {
@@ -430,7 +430,7 @@ class _$ZonePageIsEmptyImpl implements _ZonePageIsEmpty {
     TResult? Function()? initial,
     TResult? Function()? lookingForZone,
     TResult? Function(String message)? zonePageIsEmpty,
-    TResult? Function(List<FactoryZone> zoneList)? zoneStateHasData,
+    TResult? Function()? zoneStateHasData,
     TResult? Function(String message)? zonePageError,
     TResult? Function()? addZoneButtonPressed,
   }) {
@@ -443,7 +443,7 @@ class _$ZonePageIsEmptyImpl implements _ZonePageIsEmpty {
     TResult Function()? initial,
     TResult Function()? lookingForZone,
     TResult Function(String message)? zonePageIsEmpty,
-    TResult Function(List<FactoryZone> zoneList)? zoneStateHasData,
+    TResult Function()? zoneStateHasData,
     TResult Function(String message)? zonePageError,
     TResult Function()? addZoneButtonPressed,
     required TResult orElse(),
@@ -512,8 +512,6 @@ abstract class _$$ZoneStateHasDataImplCopyWith<$Res> {
   factory _$$ZoneStateHasDataImplCopyWith(_$ZoneStateHasDataImpl value,
           $Res Function(_$ZoneStateHasDataImpl) then) =
       __$$ZoneStateHasDataImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({List<FactoryZone> zoneList});
 }
 
 /// @nodoc
@@ -523,58 +521,26 @@ class __$$ZoneStateHasDataImplCopyWithImpl<$Res>
   __$$ZoneStateHasDataImplCopyWithImpl(_$ZoneStateHasDataImpl _value,
       $Res Function(_$ZoneStateHasDataImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? zoneList = null,
-  }) {
-    return _then(_$ZoneStateHasDataImpl(
-      null == zoneList
-          ? _value._zoneList
-          : zoneList // ignore: cast_nullable_to_non_nullable
-              as List<FactoryZone>,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$ZoneStateHasDataImpl implements _ZoneStateHasData {
-  const _$ZoneStateHasDataImpl(final List<FactoryZone> zoneList)
-      : _zoneList = zoneList;
-
-  final List<FactoryZone> _zoneList;
-  @override
-  List<FactoryZone> get zoneList {
-    if (_zoneList is EqualUnmodifiableListView) return _zoneList;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_zoneList);
-  }
+  const _$ZoneStateHasDataImpl();
 
   @override
   String toString() {
-    return 'ZoneState.zoneStateHasData(zoneList: $zoneList)';
+    return 'ZoneState.zoneStateHasData()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ZoneStateHasDataImpl &&
-            const DeepCollectionEquality().equals(other._zoneList, _zoneList));
+        (other.runtimeType == runtimeType && other is _$ZoneStateHasDataImpl);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_zoneList));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ZoneStateHasDataImplCopyWith<_$ZoneStateHasDataImpl> get copyWith =>
-      __$$ZoneStateHasDataImplCopyWithImpl<_$ZoneStateHasDataImpl>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -582,11 +548,11 @@ class _$ZoneStateHasDataImpl implements _ZoneStateHasData {
     required TResult Function() initial,
     required TResult Function() lookingForZone,
     required TResult Function(String message) zonePageIsEmpty,
-    required TResult Function(List<FactoryZone> zoneList) zoneStateHasData,
+    required TResult Function() zoneStateHasData,
     required TResult Function(String message) zonePageError,
     required TResult Function() addZoneButtonPressed,
   }) {
-    return zoneStateHasData(zoneList);
+    return zoneStateHasData();
   }
 
   @override
@@ -595,11 +561,11 @@ class _$ZoneStateHasDataImpl implements _ZoneStateHasData {
     TResult? Function()? initial,
     TResult? Function()? lookingForZone,
     TResult? Function(String message)? zonePageIsEmpty,
-    TResult? Function(List<FactoryZone> zoneList)? zoneStateHasData,
+    TResult? Function()? zoneStateHasData,
     TResult? Function(String message)? zonePageError,
     TResult? Function()? addZoneButtonPressed,
   }) {
-    return zoneStateHasData?.call(zoneList);
+    return zoneStateHasData?.call();
   }
 
   @override
@@ -608,13 +574,13 @@ class _$ZoneStateHasDataImpl implements _ZoneStateHasData {
     TResult Function()? initial,
     TResult Function()? lookingForZone,
     TResult Function(String message)? zonePageIsEmpty,
-    TResult Function(List<FactoryZone> zoneList)? zoneStateHasData,
+    TResult Function()? zoneStateHasData,
     TResult Function(String message)? zonePageError,
     TResult Function()? addZoneButtonPressed,
     required TResult orElse(),
   }) {
     if (zoneStateHasData != null) {
-      return zoneStateHasData(zoneList);
+      return zoneStateHasData();
     }
     return orElse();
   }
@@ -664,13 +630,7 @@ class _$ZoneStateHasDataImpl implements _ZoneStateHasData {
 }
 
 abstract class _ZoneStateHasData implements ZoneState {
-  const factory _ZoneStateHasData(final List<FactoryZone> zoneList) =
-      _$ZoneStateHasDataImpl;
-
-  List<FactoryZone> get zoneList;
-  @JsonKey(ignore: true)
-  _$$ZoneStateHasDataImplCopyWith<_$ZoneStateHasDataImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _ZoneStateHasData() = _$ZoneStateHasDataImpl;
 }
 
 /// @nodoc
@@ -740,7 +700,7 @@ class _$ZonePageErrorImpl implements _ZonePageError {
     required TResult Function() initial,
     required TResult Function() lookingForZone,
     required TResult Function(String message) zonePageIsEmpty,
-    required TResult Function(List<FactoryZone> zoneList) zoneStateHasData,
+    required TResult Function() zoneStateHasData,
     required TResult Function(String message) zonePageError,
     required TResult Function() addZoneButtonPressed,
   }) {
@@ -753,7 +713,7 @@ class _$ZonePageErrorImpl implements _ZonePageError {
     TResult? Function()? initial,
     TResult? Function()? lookingForZone,
     TResult? Function(String message)? zonePageIsEmpty,
-    TResult? Function(List<FactoryZone> zoneList)? zoneStateHasData,
+    TResult? Function()? zoneStateHasData,
     TResult? Function(String message)? zonePageError,
     TResult? Function()? addZoneButtonPressed,
   }) {
@@ -766,7 +726,7 @@ class _$ZonePageErrorImpl implements _ZonePageError {
     TResult Function()? initial,
     TResult Function()? lookingForZone,
     TResult Function(String message)? zonePageIsEmpty,
-    TResult Function(List<FactoryZone> zoneList)? zoneStateHasData,
+    TResult Function()? zoneStateHasData,
     TResult Function(String message)? zonePageError,
     TResult Function()? addZoneButtonPressed,
     required TResult orElse(),
@@ -872,7 +832,7 @@ class _$AddZoneButtonPressedImpl implements _AddZoneButtonPressed {
     required TResult Function() initial,
     required TResult Function() lookingForZone,
     required TResult Function(String message) zonePageIsEmpty,
-    required TResult Function(List<FactoryZone> zoneList) zoneStateHasData,
+    required TResult Function() zoneStateHasData,
     required TResult Function(String message) zonePageError,
     required TResult Function() addZoneButtonPressed,
   }) {
@@ -885,7 +845,7 @@ class _$AddZoneButtonPressedImpl implements _AddZoneButtonPressed {
     TResult? Function()? initial,
     TResult? Function()? lookingForZone,
     TResult? Function(String message)? zonePageIsEmpty,
-    TResult? Function(List<FactoryZone> zoneList)? zoneStateHasData,
+    TResult? Function()? zoneStateHasData,
     TResult? Function(String message)? zonePageError,
     TResult? Function()? addZoneButtonPressed,
   }) {
@@ -898,7 +858,7 @@ class _$AddZoneButtonPressedImpl implements _AddZoneButtonPressed {
     TResult Function()? initial,
     TResult Function()? lookingForZone,
     TResult Function(String message)? zonePageIsEmpty,
-    TResult Function(List<FactoryZone> zoneList)? zoneStateHasData,
+    TResult Function()? zoneStateHasData,
     TResult Function(String message)? zonePageError,
     TResult Function()? addZoneButtonPressed,
     required TResult orElse(),

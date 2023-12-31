@@ -50,30 +50,30 @@ class ZonePage extends HookWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 20),
-        child: Builder(
-          builder: (context) {
-            zoneCubit.fetchZones();
+        child: StreamBuilder<List<FactoryZone>>(
+          stream: zoneCubit.fetchZones(),
+          builder: (BuildContext context, AsyncSnapshot<List<FactoryZone>> snapshot) {
             return Container(
-                  child: zoneState.whenOrNull(
-                      lookingForZone: () => const Center(child: CircularProgressIndicator()),
-                      zonePageIsEmpty: (value) => Center(child: Text(value)),
-                      zonePageError: (value) => Center(child: Text(value)),
-                      zoneStateHasData: (zoneList) => ListView.builder(
-                        itemExtent: 180.0,
-                        itemCount: zoneList.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          final FactoryZone zone = zoneList[index];
-                          return Card(child: Row(
-                            children: [
-                              const SizedBox(width: 10.0,),
-                              const CircleAvatar(backgroundColor: Colors.white12, radius: 55, child: Icon(Icons.electric_bolt_outlined, size: 60,),),
-                              const SizedBox(width: 20.0,),
-                              Text(zone.zoneName.toUpperCase(), style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w200),),
-                            ],),);
-                        },)
-                  ),
-                );
-          }
+              child: zoneState.whenOrNull(
+                  lookingForZone: () => const Center(child: CircularProgressIndicator()),
+                  zonePageIsEmpty: (value) => Center(child: Text(value)),
+                  zonePageError: (value) => Center(child: Text(value)),
+                  zoneStateHasData: () => ListView.builder(
+                    itemExtent: 180.0,
+                    itemCount: snapshot.data?.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final FactoryZone zone = snapshot.data![index];
+                      return Card(child: Row(
+                        children: [
+                          const SizedBox(width: 10.0,),
+                          const CircleAvatar(backgroundColor: Colors.white12, radius: 55, child: Icon(Icons.electric_bolt_outlined, size: 60,),),
+                          const SizedBox(width: 20.0,),
+                          Text(zone.zoneName.toUpperCase(), style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w200),),
+                        ],),);
+                    },)
+              ),
+            );
+          },
         ),
       ),
     );
