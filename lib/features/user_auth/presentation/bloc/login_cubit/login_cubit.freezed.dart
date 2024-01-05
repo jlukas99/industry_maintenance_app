@@ -20,7 +20,7 @@ mixin _$LoginState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loginProgress,
-    required TResult Function(User user) loginSuccess,
+    required TResult Function(String uid) loginSuccess,
     required TResult Function(String message) loginFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$LoginState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loginProgress,
-    TResult? Function(User user)? loginSuccess,
+    TResult? Function(String uid)? loginSuccess,
     TResult? Function(String message)? loginFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$LoginState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loginProgress,
-    TResult Function(User user)? loginSuccess,
+    TResult Function(String uid)? loginSuccess,
     TResult Function(String message)? loginFailure,
     required TResult orElse(),
   }) =>
@@ -126,7 +126,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loginProgress,
-    required TResult Function(User user) loginSuccess,
+    required TResult Function(String uid) loginSuccess,
     required TResult Function(String message) loginFailure,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loginProgress,
-    TResult? Function(User user)? loginSuccess,
+    TResult? Function(String uid)? loginSuccess,
     TResult? Function(String message)? loginFailure,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loginProgress,
-    TResult Function(User user)? loginSuccess,
+    TResult Function(String uid)? loginSuccess,
     TResult Function(String message)? loginFailure,
     required TResult orElse(),
   }) {
@@ -240,7 +240,7 @@ class _$LoginProgressImpl implements _LoginProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loginProgress,
-    required TResult Function(User user) loginSuccess,
+    required TResult Function(String uid) loginSuccess,
     required TResult Function(String message) loginFailure,
   }) {
     return loginProgress();
@@ -251,7 +251,7 @@ class _$LoginProgressImpl implements _LoginProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loginProgress,
-    TResult? Function(User user)? loginSuccess,
+    TResult? Function(String uid)? loginSuccess,
     TResult? Function(String message)? loginFailure,
   }) {
     return loginProgress?.call();
@@ -262,7 +262,7 @@ class _$LoginProgressImpl implements _LoginProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loginProgress,
-    TResult Function(User user)? loginSuccess,
+    TResult Function(String uid)? loginSuccess,
     TResult Function(String message)? loginFailure,
     required TResult orElse(),
   }) {
@@ -320,9 +320,7 @@ abstract class _$$LoginSuccessImplCopyWith<$Res> {
           _$LoginSuccessImpl value, $Res Function(_$LoginSuccessImpl) then) =
       __$$LoginSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({User user});
-
-  $UserCopyWith<$Res> get user;
+  $Res call({String uid});
 }
 
 /// @nodoc
@@ -336,36 +334,28 @@ class __$$LoginSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user = null,
+    Object? uid = null,
   }) {
     return _then(_$LoginSuccessImpl(
-      user: null == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User,
+      null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res> get user {
-    return $UserCopyWith<$Res>(_value.user, (value) {
-      return _then(_value.copyWith(user: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$LoginSuccessImpl implements _LoginSuccess {
-  const _$LoginSuccessImpl({required this.user});
+  const _$LoginSuccessImpl(this.uid);
 
   @override
-  final User user;
+  final String uid;
 
   @override
   String toString() {
-    return 'LoginState.loginSuccess(user: $user)';
+    return 'LoginState.loginSuccess(uid: $uid)';
   }
 
   @override
@@ -373,11 +363,11 @@ class _$LoginSuccessImpl implements _LoginSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoginSuccessImpl &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.uid, uid) || other.uid == uid));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode => Object.hash(runtimeType, uid);
 
   @JsonKey(ignore: true)
   @override
@@ -390,10 +380,10 @@ class _$LoginSuccessImpl implements _LoginSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loginProgress,
-    required TResult Function(User user) loginSuccess,
+    required TResult Function(String uid) loginSuccess,
     required TResult Function(String message) loginFailure,
   }) {
-    return loginSuccess(user);
+    return loginSuccess(uid);
   }
 
   @override
@@ -401,10 +391,10 @@ class _$LoginSuccessImpl implements _LoginSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loginProgress,
-    TResult? Function(User user)? loginSuccess,
+    TResult? Function(String uid)? loginSuccess,
     TResult? Function(String message)? loginFailure,
   }) {
-    return loginSuccess?.call(user);
+    return loginSuccess?.call(uid);
   }
 
   @override
@@ -412,12 +402,12 @@ class _$LoginSuccessImpl implements _LoginSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loginProgress,
-    TResult Function(User user)? loginSuccess,
+    TResult Function(String uid)? loginSuccess,
     TResult Function(String message)? loginFailure,
     required TResult orElse(),
   }) {
     if (loginSuccess != null) {
-      return loginSuccess(user);
+      return loginSuccess(uid);
     }
     return orElse();
   }
@@ -461,9 +451,9 @@ class _$LoginSuccessImpl implements _LoginSuccess {
 }
 
 abstract class _LoginSuccess implements LoginState {
-  const factory _LoginSuccess({required final User user}) = _$LoginSuccessImpl;
+  const factory _LoginSuccess(final String uid) = _$LoginSuccessImpl;
 
-  User get user;
+  String get uid;
   @JsonKey(ignore: true)
   _$$LoginSuccessImplCopyWith<_$LoginSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -535,7 +525,7 @@ class _$LoginFailureImpl implements _LoginFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loginProgress,
-    required TResult Function(User user) loginSuccess,
+    required TResult Function(String uid) loginSuccess,
     required TResult Function(String message) loginFailure,
   }) {
     return loginFailure(message);
@@ -546,7 +536,7 @@ class _$LoginFailureImpl implements _LoginFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loginProgress,
-    TResult? Function(User user)? loginSuccess,
+    TResult? Function(String uid)? loginSuccess,
     TResult? Function(String message)? loginFailure,
   }) {
     return loginFailure?.call(message);
@@ -557,7 +547,7 @@ class _$LoginFailureImpl implements _LoginFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loginProgress,
-    TResult Function(User user)? loginSuccess,
+    TResult Function(String uid)? loginSuccess,
     TResult Function(String message)? loginFailure,
     required TResult orElse(),
   }) {

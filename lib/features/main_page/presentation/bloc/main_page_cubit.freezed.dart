@@ -19,56 +19,63 @@ mixin _$MainPageState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() error,
-    required TResult Function() shutDownsPressed,
-    required TResult Function() factoryPressed,
-    required TResult Function() failuresPressed,
+    required TResult Function(MyUser user) mainPageInitialized,
+    required TResult Function() mainPageError,
+    required TResult Function() shutDownButtonPressed,
+    required TResult Function() factoryButtonPressed,
+    required TResult Function() failureButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? error,
-    TResult? Function()? shutDownsPressed,
-    TResult? Function()? factoryPressed,
-    TResult? Function()? failuresPressed,
+    TResult? Function(MyUser user)? mainPageInitialized,
+    TResult? Function()? mainPageError,
+    TResult? Function()? shutDownButtonPressed,
+    TResult? Function()? factoryButtonPressed,
+    TResult? Function()? failureButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? error,
-    TResult Function()? shutDownsPressed,
-    TResult Function()? factoryPressed,
-    TResult Function()? failuresPressed,
+    TResult Function(MyUser user)? mainPageInitialized,
+    TResult Function()? mainPageError,
+    TResult Function()? shutDownButtonPressed,
+    TResult Function()? factoryButtonPressed,
+    TResult Function()? failureButtonPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Error value) error,
-    required TResult Function(_ShutDownPressed value) shutDownsPressed,
-    required TResult Function(_FactoryPressed value) factoryPressed,
-    required TResult Function(_FailuresPressed value) failuresPressed,
+    required TResult Function(_MainPageInitialized value) mainPageInitialized,
+    required TResult Function(_MainPageError value) mainPageError,
+    required TResult Function(_ShutDownButtonPressed value)
+        shutDownButtonPressed,
+    required TResult Function(_FactoryButtonPressed value) factoryButtonPressed,
+    required TResult Function(_FailureButtonPressed value) failureButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_ShutDownPressed value)? shutDownsPressed,
-    TResult? Function(_FactoryPressed value)? factoryPressed,
-    TResult? Function(_FailuresPressed value)? failuresPressed,
+    TResult? Function(_MainPageInitialized value)? mainPageInitialized,
+    TResult? Function(_MainPageError value)? mainPageError,
+    TResult? Function(_ShutDownButtonPressed value)? shutDownButtonPressed,
+    TResult? Function(_FactoryButtonPressed value)? factoryButtonPressed,
+    TResult? Function(_FailureButtonPressed value)? failureButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Error value)? error,
-    TResult Function(_ShutDownPressed value)? shutDownsPressed,
-    TResult Function(_FactoryPressed value)? factoryPressed,
-    TResult Function(_FailuresPressed value)? failuresPressed,
+    TResult Function(_MainPageInitialized value)? mainPageInitialized,
+    TResult Function(_MainPageError value)? mainPageError,
+    TResult Function(_ShutDownButtonPressed value)? shutDownButtonPressed,
+    TResult Function(_FactoryButtonPressed value)? factoryButtonPressed,
+    TResult Function(_FailureButtonPressed value)? failureButtonPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,10 +138,11 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() error,
-    required TResult Function() shutDownsPressed,
-    required TResult Function() factoryPressed,
-    required TResult Function() failuresPressed,
+    required TResult Function(MyUser user) mainPageInitialized,
+    required TResult Function() mainPageError,
+    required TResult Function() shutDownButtonPressed,
+    required TResult Function() factoryButtonPressed,
+    required TResult Function() failureButtonPressed,
   }) {
     return initial();
   }
@@ -143,10 +151,11 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? error,
-    TResult? Function()? shutDownsPressed,
-    TResult? Function()? factoryPressed,
-    TResult? Function()? failuresPressed,
+    TResult? Function(MyUser user)? mainPageInitialized,
+    TResult? Function()? mainPageError,
+    TResult? Function()? shutDownButtonPressed,
+    TResult? Function()? factoryButtonPressed,
+    TResult? Function()? failureButtonPressed,
   }) {
     return initial?.call();
   }
@@ -155,10 +164,11 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? error,
-    TResult Function()? shutDownsPressed,
-    TResult Function()? factoryPressed,
-    TResult Function()? failuresPressed,
+    TResult Function(MyUser user)? mainPageInitialized,
+    TResult Function()? mainPageError,
+    TResult Function()? shutDownButtonPressed,
+    TResult Function()? factoryButtonPressed,
+    TResult Function()? failureButtonPressed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,10 +181,12 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Error value) error,
-    required TResult Function(_ShutDownPressed value) shutDownsPressed,
-    required TResult Function(_FactoryPressed value) factoryPressed,
-    required TResult Function(_FailuresPressed value) failuresPressed,
+    required TResult Function(_MainPageInitialized value) mainPageInitialized,
+    required TResult Function(_MainPageError value) mainPageError,
+    required TResult Function(_ShutDownButtonPressed value)
+        shutDownButtonPressed,
+    required TResult Function(_FactoryButtonPressed value) factoryButtonPressed,
+    required TResult Function(_FailureButtonPressed value) failureButtonPressed,
   }) {
     return initial(this);
   }
@@ -183,10 +195,11 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_ShutDownPressed value)? shutDownsPressed,
-    TResult? Function(_FactoryPressed value)? factoryPressed,
-    TResult? Function(_FailuresPressed value)? failuresPressed,
+    TResult? Function(_MainPageInitialized value)? mainPageInitialized,
+    TResult? Function(_MainPageError value)? mainPageError,
+    TResult? Function(_ShutDownButtonPressed value)? shutDownButtonPressed,
+    TResult? Function(_FactoryButtonPressed value)? factoryButtonPressed,
+    TResult? Function(_FailureButtonPressed value)? failureButtonPressed,
   }) {
     return initial?.call(this);
   }
@@ -195,10 +208,11 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Error value)? error,
-    TResult Function(_ShutDownPressed value)? shutDownsPressed,
-    TResult Function(_FactoryPressed value)? factoryPressed,
-    TResult Function(_FailuresPressed value)? failuresPressed,
+    TResult Function(_MainPageInitialized value)? mainPageInitialized,
+    TResult Function(_MainPageError value)? mainPageError,
+    TResult Function(_ShutDownButtonPressed value)? shutDownButtonPressed,
+    TResult Function(_FactoryButtonPressed value)? factoryButtonPressed,
+    TResult Function(_FailureButtonPressed value)? failureButtonPressed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -213,35 +227,205 @@ abstract class _Initial implements MainPageState {
 }
 
 /// @nodoc
-abstract class _$$ErrorImplCopyWith<$Res> {
-  factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+abstract class _$$MainPageInitializedImplCopyWith<$Res> {
+  factory _$$MainPageInitializedImplCopyWith(_$MainPageInitializedImpl value,
+          $Res Function(_$MainPageInitializedImpl) then) =
+      __$$MainPageInitializedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({MyUser user});
+
+  $MyUserCopyWith<$Res> get user;
 }
 
 /// @nodoc
-class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$MainPageStateCopyWithImpl<$Res, _$ErrorImpl>
-    implements _$$ErrorImplCopyWith<$Res> {
-  __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
+class __$$MainPageInitializedImplCopyWithImpl<$Res>
+    extends _$MainPageStateCopyWithImpl<$Res, _$MainPageInitializedImpl>
+    implements _$$MainPageInitializedImplCopyWith<$Res> {
+  __$$MainPageInitializedImplCopyWithImpl(_$MainPageInitializedImpl _value,
+      $Res Function(_$MainPageInitializedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$MainPageInitializedImpl(
+      null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as MyUser,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MyUserCopyWith<$Res> get user {
+    return $MyUserCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$ErrorImpl implements _Error {
-  const _$ErrorImpl();
+class _$MainPageInitializedImpl implements _MainPageInitialized {
+  const _$MainPageInitializedImpl(this.user);
+
+  @override
+  final MyUser user;
 
   @override
   String toString() {
-    return 'MainPageState.error()';
+    return 'MainPageState.mainPageInitialized(user: $user)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ErrorImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$MainPageInitializedImpl &&
+            (identical(other.user, user) || other.user == user));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MainPageInitializedImplCopyWith<_$MainPageInitializedImpl> get copyWith =>
+      __$$MainPageInitializedImplCopyWithImpl<_$MainPageInitializedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(MyUser user) mainPageInitialized,
+    required TResult Function() mainPageError,
+    required TResult Function() shutDownButtonPressed,
+    required TResult Function() factoryButtonPressed,
+    required TResult Function() failureButtonPressed,
+  }) {
+    return mainPageInitialized(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(MyUser user)? mainPageInitialized,
+    TResult? Function()? mainPageError,
+    TResult? Function()? shutDownButtonPressed,
+    TResult? Function()? factoryButtonPressed,
+    TResult? Function()? failureButtonPressed,
+  }) {
+    return mainPageInitialized?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(MyUser user)? mainPageInitialized,
+    TResult Function()? mainPageError,
+    TResult Function()? shutDownButtonPressed,
+    TResult Function()? factoryButtonPressed,
+    TResult Function()? failureButtonPressed,
+    required TResult orElse(),
+  }) {
+    if (mainPageInitialized != null) {
+      return mainPageInitialized(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_MainPageInitialized value) mainPageInitialized,
+    required TResult Function(_MainPageError value) mainPageError,
+    required TResult Function(_ShutDownButtonPressed value)
+        shutDownButtonPressed,
+    required TResult Function(_FactoryButtonPressed value) factoryButtonPressed,
+    required TResult Function(_FailureButtonPressed value) failureButtonPressed,
+  }) {
+    return mainPageInitialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_MainPageInitialized value)? mainPageInitialized,
+    TResult? Function(_MainPageError value)? mainPageError,
+    TResult? Function(_ShutDownButtonPressed value)? shutDownButtonPressed,
+    TResult? Function(_FactoryButtonPressed value)? factoryButtonPressed,
+    TResult? Function(_FailureButtonPressed value)? failureButtonPressed,
+  }) {
+    return mainPageInitialized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_MainPageInitialized value)? mainPageInitialized,
+    TResult Function(_MainPageError value)? mainPageError,
+    TResult Function(_ShutDownButtonPressed value)? shutDownButtonPressed,
+    TResult Function(_FactoryButtonPressed value)? factoryButtonPressed,
+    TResult Function(_FailureButtonPressed value)? failureButtonPressed,
+    required TResult orElse(),
+  }) {
+    if (mainPageInitialized != null) {
+      return mainPageInitialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MainPageInitialized implements MainPageState {
+  const factory _MainPageInitialized(final MyUser user) =
+      _$MainPageInitializedImpl;
+
+  MyUser get user;
+  @JsonKey(ignore: true)
+  _$$MainPageInitializedImplCopyWith<_$MainPageInitializedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MainPageErrorImplCopyWith<$Res> {
+  factory _$$MainPageErrorImplCopyWith(
+          _$MainPageErrorImpl value, $Res Function(_$MainPageErrorImpl) then) =
+      __$$MainPageErrorImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$MainPageErrorImplCopyWithImpl<$Res>
+    extends _$MainPageStateCopyWithImpl<$Res, _$MainPageErrorImpl>
+    implements _$$MainPageErrorImplCopyWith<$Res> {
+  __$$MainPageErrorImplCopyWithImpl(
+      _$MainPageErrorImpl _value, $Res Function(_$MainPageErrorImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$MainPageErrorImpl implements _MainPageError {
+  const _$MainPageErrorImpl();
+
+  @override
+  String toString() {
+    return 'MainPageState.mainPageError()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$MainPageErrorImpl);
   }
 
   @override
@@ -251,38 +435,41 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() error,
-    required TResult Function() shutDownsPressed,
-    required TResult Function() factoryPressed,
-    required TResult Function() failuresPressed,
+    required TResult Function(MyUser user) mainPageInitialized,
+    required TResult Function() mainPageError,
+    required TResult Function() shutDownButtonPressed,
+    required TResult Function() factoryButtonPressed,
+    required TResult Function() failureButtonPressed,
   }) {
-    return error();
+    return mainPageError();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? error,
-    TResult? Function()? shutDownsPressed,
-    TResult? Function()? factoryPressed,
-    TResult? Function()? failuresPressed,
+    TResult? Function(MyUser user)? mainPageInitialized,
+    TResult? Function()? mainPageError,
+    TResult? Function()? shutDownButtonPressed,
+    TResult? Function()? factoryButtonPressed,
+    TResult? Function()? failureButtonPressed,
   }) {
-    return error?.call();
+    return mainPageError?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? error,
-    TResult Function()? shutDownsPressed,
-    TResult Function()? factoryPressed,
-    TResult Function()? failuresPressed,
+    TResult Function(MyUser user)? mainPageInitialized,
+    TResult Function()? mainPageError,
+    TResult Function()? shutDownButtonPressed,
+    TResult Function()? factoryButtonPressed,
+    TResult Function()? failureButtonPressed,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error();
+    if (mainPageError != null) {
+      return mainPageError();
     }
     return orElse();
   }
@@ -291,77 +478,83 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Error value) error,
-    required TResult Function(_ShutDownPressed value) shutDownsPressed,
-    required TResult Function(_FactoryPressed value) factoryPressed,
-    required TResult Function(_FailuresPressed value) failuresPressed,
+    required TResult Function(_MainPageInitialized value) mainPageInitialized,
+    required TResult Function(_MainPageError value) mainPageError,
+    required TResult Function(_ShutDownButtonPressed value)
+        shutDownButtonPressed,
+    required TResult Function(_FactoryButtonPressed value) factoryButtonPressed,
+    required TResult Function(_FailureButtonPressed value) failureButtonPressed,
   }) {
-    return error(this);
+    return mainPageError(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_ShutDownPressed value)? shutDownsPressed,
-    TResult? Function(_FactoryPressed value)? factoryPressed,
-    TResult? Function(_FailuresPressed value)? failuresPressed,
+    TResult? Function(_MainPageInitialized value)? mainPageInitialized,
+    TResult? Function(_MainPageError value)? mainPageError,
+    TResult? Function(_ShutDownButtonPressed value)? shutDownButtonPressed,
+    TResult? Function(_FactoryButtonPressed value)? factoryButtonPressed,
+    TResult? Function(_FailureButtonPressed value)? failureButtonPressed,
   }) {
-    return error?.call(this);
+    return mainPageError?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Error value)? error,
-    TResult Function(_ShutDownPressed value)? shutDownsPressed,
-    TResult Function(_FactoryPressed value)? factoryPressed,
-    TResult Function(_FailuresPressed value)? failuresPressed,
+    TResult Function(_MainPageInitialized value)? mainPageInitialized,
+    TResult Function(_MainPageError value)? mainPageError,
+    TResult Function(_ShutDownButtonPressed value)? shutDownButtonPressed,
+    TResult Function(_FactoryButtonPressed value)? factoryButtonPressed,
+    TResult Function(_FailureButtonPressed value)? failureButtonPressed,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(this);
+    if (mainPageError != null) {
+      return mainPageError(this);
     }
     return orElse();
   }
 }
 
-abstract class _Error implements MainPageState {
-  const factory _Error() = _$ErrorImpl;
+abstract class _MainPageError implements MainPageState {
+  const factory _MainPageError() = _$MainPageErrorImpl;
 }
 
 /// @nodoc
-abstract class _$$ShutDownPressedImplCopyWith<$Res> {
-  factory _$$ShutDownPressedImplCopyWith(_$ShutDownPressedImpl value,
-          $Res Function(_$ShutDownPressedImpl) then) =
-      __$$ShutDownPressedImplCopyWithImpl<$Res>;
+abstract class _$$ShutDownButtonPressedImplCopyWith<$Res> {
+  factory _$$ShutDownButtonPressedImplCopyWith(
+          _$ShutDownButtonPressedImpl value,
+          $Res Function(_$ShutDownButtonPressedImpl) then) =
+      __$$ShutDownButtonPressedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ShutDownPressedImplCopyWithImpl<$Res>
-    extends _$MainPageStateCopyWithImpl<$Res, _$ShutDownPressedImpl>
-    implements _$$ShutDownPressedImplCopyWith<$Res> {
-  __$$ShutDownPressedImplCopyWithImpl(
-      _$ShutDownPressedImpl _value, $Res Function(_$ShutDownPressedImpl) _then)
+class __$$ShutDownButtonPressedImplCopyWithImpl<$Res>
+    extends _$MainPageStateCopyWithImpl<$Res, _$ShutDownButtonPressedImpl>
+    implements _$$ShutDownButtonPressedImplCopyWith<$Res> {
+  __$$ShutDownButtonPressedImplCopyWithImpl(_$ShutDownButtonPressedImpl _value,
+      $Res Function(_$ShutDownButtonPressedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ShutDownPressedImpl implements _ShutDownPressed {
-  const _$ShutDownPressedImpl();
+class _$ShutDownButtonPressedImpl implements _ShutDownButtonPressed {
+  const _$ShutDownButtonPressedImpl();
 
   @override
   String toString() {
-    return 'MainPageState.shutDownsPressed()';
+    return 'MainPageState.shutDownButtonPressed()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ShutDownPressedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ShutDownButtonPressedImpl);
   }
 
   @override
@@ -371,38 +564,41 @@ class _$ShutDownPressedImpl implements _ShutDownPressed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() error,
-    required TResult Function() shutDownsPressed,
-    required TResult Function() factoryPressed,
-    required TResult Function() failuresPressed,
+    required TResult Function(MyUser user) mainPageInitialized,
+    required TResult Function() mainPageError,
+    required TResult Function() shutDownButtonPressed,
+    required TResult Function() factoryButtonPressed,
+    required TResult Function() failureButtonPressed,
   }) {
-    return shutDownsPressed();
+    return shutDownButtonPressed();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? error,
-    TResult? Function()? shutDownsPressed,
-    TResult? Function()? factoryPressed,
-    TResult? Function()? failuresPressed,
+    TResult? Function(MyUser user)? mainPageInitialized,
+    TResult? Function()? mainPageError,
+    TResult? Function()? shutDownButtonPressed,
+    TResult? Function()? factoryButtonPressed,
+    TResult? Function()? failureButtonPressed,
   }) {
-    return shutDownsPressed?.call();
+    return shutDownButtonPressed?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? error,
-    TResult Function()? shutDownsPressed,
-    TResult Function()? factoryPressed,
-    TResult Function()? failuresPressed,
+    TResult Function(MyUser user)? mainPageInitialized,
+    TResult Function()? mainPageError,
+    TResult Function()? shutDownButtonPressed,
+    TResult Function()? factoryButtonPressed,
+    TResult Function()? failureButtonPressed,
     required TResult orElse(),
   }) {
-    if (shutDownsPressed != null) {
-      return shutDownsPressed();
+    if (shutDownButtonPressed != null) {
+      return shutDownButtonPressed();
     }
     return orElse();
   }
@@ -411,77 +607,82 @@ class _$ShutDownPressedImpl implements _ShutDownPressed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Error value) error,
-    required TResult Function(_ShutDownPressed value) shutDownsPressed,
-    required TResult Function(_FactoryPressed value) factoryPressed,
-    required TResult Function(_FailuresPressed value) failuresPressed,
+    required TResult Function(_MainPageInitialized value) mainPageInitialized,
+    required TResult Function(_MainPageError value) mainPageError,
+    required TResult Function(_ShutDownButtonPressed value)
+        shutDownButtonPressed,
+    required TResult Function(_FactoryButtonPressed value) factoryButtonPressed,
+    required TResult Function(_FailureButtonPressed value) failureButtonPressed,
   }) {
-    return shutDownsPressed(this);
+    return shutDownButtonPressed(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_ShutDownPressed value)? shutDownsPressed,
-    TResult? Function(_FactoryPressed value)? factoryPressed,
-    TResult? Function(_FailuresPressed value)? failuresPressed,
+    TResult? Function(_MainPageInitialized value)? mainPageInitialized,
+    TResult? Function(_MainPageError value)? mainPageError,
+    TResult? Function(_ShutDownButtonPressed value)? shutDownButtonPressed,
+    TResult? Function(_FactoryButtonPressed value)? factoryButtonPressed,
+    TResult? Function(_FailureButtonPressed value)? failureButtonPressed,
   }) {
-    return shutDownsPressed?.call(this);
+    return shutDownButtonPressed?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Error value)? error,
-    TResult Function(_ShutDownPressed value)? shutDownsPressed,
-    TResult Function(_FactoryPressed value)? factoryPressed,
-    TResult Function(_FailuresPressed value)? failuresPressed,
+    TResult Function(_MainPageInitialized value)? mainPageInitialized,
+    TResult Function(_MainPageError value)? mainPageError,
+    TResult Function(_ShutDownButtonPressed value)? shutDownButtonPressed,
+    TResult Function(_FactoryButtonPressed value)? factoryButtonPressed,
+    TResult Function(_FailureButtonPressed value)? failureButtonPressed,
     required TResult orElse(),
   }) {
-    if (shutDownsPressed != null) {
-      return shutDownsPressed(this);
+    if (shutDownButtonPressed != null) {
+      return shutDownButtonPressed(this);
     }
     return orElse();
   }
 }
 
-abstract class _ShutDownPressed implements MainPageState {
-  const factory _ShutDownPressed() = _$ShutDownPressedImpl;
+abstract class _ShutDownButtonPressed implements MainPageState {
+  const factory _ShutDownButtonPressed() = _$ShutDownButtonPressedImpl;
 }
 
 /// @nodoc
-abstract class _$$FactoryPressedImplCopyWith<$Res> {
-  factory _$$FactoryPressedImplCopyWith(_$FactoryPressedImpl value,
-          $Res Function(_$FactoryPressedImpl) then) =
-      __$$FactoryPressedImplCopyWithImpl<$Res>;
+abstract class _$$FactoryButtonPressedImplCopyWith<$Res> {
+  factory _$$FactoryButtonPressedImplCopyWith(_$FactoryButtonPressedImpl value,
+          $Res Function(_$FactoryButtonPressedImpl) then) =
+      __$$FactoryButtonPressedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FactoryPressedImplCopyWithImpl<$Res>
-    extends _$MainPageStateCopyWithImpl<$Res, _$FactoryPressedImpl>
-    implements _$$FactoryPressedImplCopyWith<$Res> {
-  __$$FactoryPressedImplCopyWithImpl(
-      _$FactoryPressedImpl _value, $Res Function(_$FactoryPressedImpl) _then)
+class __$$FactoryButtonPressedImplCopyWithImpl<$Res>
+    extends _$MainPageStateCopyWithImpl<$Res, _$FactoryButtonPressedImpl>
+    implements _$$FactoryButtonPressedImplCopyWith<$Res> {
+  __$$FactoryButtonPressedImplCopyWithImpl(_$FactoryButtonPressedImpl _value,
+      $Res Function(_$FactoryButtonPressedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FactoryPressedImpl implements _FactoryPressed {
-  const _$FactoryPressedImpl();
+class _$FactoryButtonPressedImpl implements _FactoryButtonPressed {
+  const _$FactoryButtonPressedImpl();
 
   @override
   String toString() {
-    return 'MainPageState.factoryPressed()';
+    return 'MainPageState.factoryButtonPressed()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FactoryPressedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$FactoryButtonPressedImpl);
   }
 
   @override
@@ -491,38 +692,41 @@ class _$FactoryPressedImpl implements _FactoryPressed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() error,
-    required TResult Function() shutDownsPressed,
-    required TResult Function() factoryPressed,
-    required TResult Function() failuresPressed,
+    required TResult Function(MyUser user) mainPageInitialized,
+    required TResult Function() mainPageError,
+    required TResult Function() shutDownButtonPressed,
+    required TResult Function() factoryButtonPressed,
+    required TResult Function() failureButtonPressed,
   }) {
-    return factoryPressed();
+    return factoryButtonPressed();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? error,
-    TResult? Function()? shutDownsPressed,
-    TResult? Function()? factoryPressed,
-    TResult? Function()? failuresPressed,
+    TResult? Function(MyUser user)? mainPageInitialized,
+    TResult? Function()? mainPageError,
+    TResult? Function()? shutDownButtonPressed,
+    TResult? Function()? factoryButtonPressed,
+    TResult? Function()? failureButtonPressed,
   }) {
-    return factoryPressed?.call();
+    return factoryButtonPressed?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? error,
-    TResult Function()? shutDownsPressed,
-    TResult Function()? factoryPressed,
-    TResult Function()? failuresPressed,
+    TResult Function(MyUser user)? mainPageInitialized,
+    TResult Function()? mainPageError,
+    TResult Function()? shutDownButtonPressed,
+    TResult Function()? factoryButtonPressed,
+    TResult Function()? failureButtonPressed,
     required TResult orElse(),
   }) {
-    if (factoryPressed != null) {
-      return factoryPressed();
+    if (factoryButtonPressed != null) {
+      return factoryButtonPressed();
     }
     return orElse();
   }
@@ -531,77 +735,82 @@ class _$FactoryPressedImpl implements _FactoryPressed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Error value) error,
-    required TResult Function(_ShutDownPressed value) shutDownsPressed,
-    required TResult Function(_FactoryPressed value) factoryPressed,
-    required TResult Function(_FailuresPressed value) failuresPressed,
+    required TResult Function(_MainPageInitialized value) mainPageInitialized,
+    required TResult Function(_MainPageError value) mainPageError,
+    required TResult Function(_ShutDownButtonPressed value)
+        shutDownButtonPressed,
+    required TResult Function(_FactoryButtonPressed value) factoryButtonPressed,
+    required TResult Function(_FailureButtonPressed value) failureButtonPressed,
   }) {
-    return factoryPressed(this);
+    return factoryButtonPressed(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_ShutDownPressed value)? shutDownsPressed,
-    TResult? Function(_FactoryPressed value)? factoryPressed,
-    TResult? Function(_FailuresPressed value)? failuresPressed,
+    TResult? Function(_MainPageInitialized value)? mainPageInitialized,
+    TResult? Function(_MainPageError value)? mainPageError,
+    TResult? Function(_ShutDownButtonPressed value)? shutDownButtonPressed,
+    TResult? Function(_FactoryButtonPressed value)? factoryButtonPressed,
+    TResult? Function(_FailureButtonPressed value)? failureButtonPressed,
   }) {
-    return factoryPressed?.call(this);
+    return factoryButtonPressed?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Error value)? error,
-    TResult Function(_ShutDownPressed value)? shutDownsPressed,
-    TResult Function(_FactoryPressed value)? factoryPressed,
-    TResult Function(_FailuresPressed value)? failuresPressed,
+    TResult Function(_MainPageInitialized value)? mainPageInitialized,
+    TResult Function(_MainPageError value)? mainPageError,
+    TResult Function(_ShutDownButtonPressed value)? shutDownButtonPressed,
+    TResult Function(_FactoryButtonPressed value)? factoryButtonPressed,
+    TResult Function(_FailureButtonPressed value)? failureButtonPressed,
     required TResult orElse(),
   }) {
-    if (factoryPressed != null) {
-      return factoryPressed(this);
+    if (factoryButtonPressed != null) {
+      return factoryButtonPressed(this);
     }
     return orElse();
   }
 }
 
-abstract class _FactoryPressed implements MainPageState {
-  const factory _FactoryPressed() = _$FactoryPressedImpl;
+abstract class _FactoryButtonPressed implements MainPageState {
+  const factory _FactoryButtonPressed() = _$FactoryButtonPressedImpl;
 }
 
 /// @nodoc
-abstract class _$$FailuresPressedImplCopyWith<$Res> {
-  factory _$$FailuresPressedImplCopyWith(_$FailuresPressedImpl value,
-          $Res Function(_$FailuresPressedImpl) then) =
-      __$$FailuresPressedImplCopyWithImpl<$Res>;
+abstract class _$$FailureButtonPressedImplCopyWith<$Res> {
+  factory _$$FailureButtonPressedImplCopyWith(_$FailureButtonPressedImpl value,
+          $Res Function(_$FailureButtonPressedImpl) then) =
+      __$$FailureButtonPressedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FailuresPressedImplCopyWithImpl<$Res>
-    extends _$MainPageStateCopyWithImpl<$Res, _$FailuresPressedImpl>
-    implements _$$FailuresPressedImplCopyWith<$Res> {
-  __$$FailuresPressedImplCopyWithImpl(
-      _$FailuresPressedImpl _value, $Res Function(_$FailuresPressedImpl) _then)
+class __$$FailureButtonPressedImplCopyWithImpl<$Res>
+    extends _$MainPageStateCopyWithImpl<$Res, _$FailureButtonPressedImpl>
+    implements _$$FailureButtonPressedImplCopyWith<$Res> {
+  __$$FailureButtonPressedImplCopyWithImpl(_$FailureButtonPressedImpl _value,
+      $Res Function(_$FailureButtonPressedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FailuresPressedImpl implements _FailuresPressed {
-  const _$FailuresPressedImpl();
+class _$FailureButtonPressedImpl implements _FailureButtonPressed {
+  const _$FailureButtonPressedImpl();
 
   @override
   String toString() {
-    return 'MainPageState.failuresPressed()';
+    return 'MainPageState.failureButtonPressed()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FailuresPressedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$FailureButtonPressedImpl);
   }
 
   @override
@@ -611,38 +820,41 @@ class _$FailuresPressedImpl implements _FailuresPressed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() error,
-    required TResult Function() shutDownsPressed,
-    required TResult Function() factoryPressed,
-    required TResult Function() failuresPressed,
+    required TResult Function(MyUser user) mainPageInitialized,
+    required TResult Function() mainPageError,
+    required TResult Function() shutDownButtonPressed,
+    required TResult Function() factoryButtonPressed,
+    required TResult Function() failureButtonPressed,
   }) {
-    return failuresPressed();
+    return failureButtonPressed();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? error,
-    TResult? Function()? shutDownsPressed,
-    TResult? Function()? factoryPressed,
-    TResult? Function()? failuresPressed,
+    TResult? Function(MyUser user)? mainPageInitialized,
+    TResult? Function()? mainPageError,
+    TResult? Function()? shutDownButtonPressed,
+    TResult? Function()? factoryButtonPressed,
+    TResult? Function()? failureButtonPressed,
   }) {
-    return failuresPressed?.call();
+    return failureButtonPressed?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? error,
-    TResult Function()? shutDownsPressed,
-    TResult Function()? factoryPressed,
-    TResult Function()? failuresPressed,
+    TResult Function(MyUser user)? mainPageInitialized,
+    TResult Function()? mainPageError,
+    TResult Function()? shutDownButtonPressed,
+    TResult Function()? factoryButtonPressed,
+    TResult Function()? failureButtonPressed,
     required TResult orElse(),
   }) {
-    if (failuresPressed != null) {
-      return failuresPressed();
+    if (failureButtonPressed != null) {
+      return failureButtonPressed();
     }
     return orElse();
   }
@@ -651,43 +863,47 @@ class _$FailuresPressedImpl implements _FailuresPressed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Error value) error,
-    required TResult Function(_ShutDownPressed value) shutDownsPressed,
-    required TResult Function(_FactoryPressed value) factoryPressed,
-    required TResult Function(_FailuresPressed value) failuresPressed,
+    required TResult Function(_MainPageInitialized value) mainPageInitialized,
+    required TResult Function(_MainPageError value) mainPageError,
+    required TResult Function(_ShutDownButtonPressed value)
+        shutDownButtonPressed,
+    required TResult Function(_FactoryButtonPressed value) factoryButtonPressed,
+    required TResult Function(_FailureButtonPressed value) failureButtonPressed,
   }) {
-    return failuresPressed(this);
+    return failureButtonPressed(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_ShutDownPressed value)? shutDownsPressed,
-    TResult? Function(_FactoryPressed value)? factoryPressed,
-    TResult? Function(_FailuresPressed value)? failuresPressed,
+    TResult? Function(_MainPageInitialized value)? mainPageInitialized,
+    TResult? Function(_MainPageError value)? mainPageError,
+    TResult? Function(_ShutDownButtonPressed value)? shutDownButtonPressed,
+    TResult? Function(_FactoryButtonPressed value)? factoryButtonPressed,
+    TResult? Function(_FailureButtonPressed value)? failureButtonPressed,
   }) {
-    return failuresPressed?.call(this);
+    return failureButtonPressed?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Error value)? error,
-    TResult Function(_ShutDownPressed value)? shutDownsPressed,
-    TResult Function(_FactoryPressed value)? factoryPressed,
-    TResult Function(_FailuresPressed value)? failuresPressed,
+    TResult Function(_MainPageInitialized value)? mainPageInitialized,
+    TResult Function(_MainPageError value)? mainPageError,
+    TResult Function(_ShutDownButtonPressed value)? shutDownButtonPressed,
+    TResult Function(_FactoryButtonPressed value)? factoryButtonPressed,
+    TResult Function(_FailureButtonPressed value)? failureButtonPressed,
     required TResult orElse(),
   }) {
-    if (failuresPressed != null) {
-      return failuresPressed(this);
+    if (failureButtonPressed != null) {
+      return failureButtonPressed(this);
     }
     return orElse();
   }
 }
 
-abstract class _FailuresPressed implements MainPageState {
-  const factory _FailuresPressed() = _$FailuresPressedImpl;
+abstract class _FailureButtonPressed implements MainPageState {
+  const factory _FailureButtonPressed() = _$FailureButtonPressedImpl;
 }

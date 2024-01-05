@@ -7,3 +7,7 @@ class CreateUserFailure extends Failure{
 class LoginUserFailure extends Failure{
   const LoginUserFailure({required super.failureMessage});
 }
+
+class GettingUserFailure extends Failure{
+  const GettingUserFailure({required super.failureMessage});
+}

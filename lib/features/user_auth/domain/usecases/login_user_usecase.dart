@@ -11,7 +11,7 @@ class LoginUserUseCase implements UseCaseWithParams<void, LoginParams>{
   const LoginUserUseCase({required this.repo});
 
   @override
-  Future<Either<Failure, User>> call(params) async{
+  Future<Either<Failure, String>> call(params) async{
     return await repo.loginUser(userPassword: params.userPassword, userLogin: params.userLogin);
     // TODO: implement call
     throw UnimplementedError();

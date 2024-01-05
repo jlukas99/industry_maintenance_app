@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-User _$UserFromJson(Map<String, dynamic> json) {
+MyUser _$MyUserFromJson(Map<String, dynamic> json) {
   return _User.fromJson(json);
 }
 
 /// @nodoc
-mixin _$User {
+mixin _$MyUser {
   String get userName => throw _privateConstructorUsedError;
   String get userPassword => throw _privateConstructorUsedError;
   String get userLogin => throw _privateConstructorUsedError;
@@ -29,13 +29,13 @@ mixin _$User {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
+  $MyUserCopyWith<MyUser> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserCopyWith<$Res> {
-  factory $UserCopyWith(User value, $Res Function(User) then) =
-      _$UserCopyWithImpl<$Res, User>;
+abstract class $MyUserCopyWith<$Res> {
+  factory $MyUserCopyWith(MyUser value, $Res Function(MyUser) then) =
+      _$MyUserCopyWithImpl<$Res, MyUser>;
   @useResult
   $Res call(
       {String userName,
@@ -47,9 +47,9 @@ abstract class $UserCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UserCopyWithImpl<$Res, $Val extends User>
-    implements $UserCopyWith<$Res> {
-  _$UserCopyWithImpl(this._value, this._then);
+class _$MyUserCopyWithImpl<$Res, $Val extends MyUser>
+    implements $MyUserCopyWith<$Res> {
+  _$MyUserCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -96,7 +96,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
 }
 
 /// @nodoc
-abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
+abstract class _$$UserImplCopyWith<$Res> implements $MyUserCopyWith<$Res> {
   factory _$$UserImplCopyWith(
           _$UserImpl value, $Res Function(_$UserImpl) then) =
       __$$UserImplCopyWithImpl<$Res>;
@@ -113,7 +113,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
 
 /// @nodoc
 class __$$UserImplCopyWithImpl<$Res>
-    extends _$UserCopyWithImpl<$Res, _$UserImpl>
+    extends _$MyUserCopyWithImpl<$Res, _$UserImpl>
     implements _$$UserImplCopyWith<$Res> {
   __$$UserImplCopyWithImpl(_$UserImpl _value, $Res Function(_$UserImpl) _then)
       : super(_value, _then);
@@ -188,7 +188,7 @@ class _$UserImpl implements _User {
 
   @override
   String toString() {
-    return 'User(userName: $userName, userPassword: $userPassword, userLogin: $userLogin, userSurName: $userSurName, userID: $userID, jobPosition: $jobPosition)';
+    return 'MyUser(userName: $userName, userPassword: $userPassword, userLogin: $userLogin, userSurName: $userSurName, userID: $userID, jobPosition: $jobPosition)';
   }
 
   @override
@@ -228,7 +228,7 @@ class _$UserImpl implements _User {
   }
 }
 
-abstract class _User implements User {
+abstract class _User implements MyUser {
   const factory _User(
       {required final String userName,
       required final String userPassword,

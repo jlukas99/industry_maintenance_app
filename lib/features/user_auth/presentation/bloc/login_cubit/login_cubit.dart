@@ -21,8 +21,8 @@ class LoginCubit extends Cubit<LoginState> {
     result.fold((failure){
       emit(const LoginState.loginFailure('Unable to login user'));
       emit(const LoginState.initial());
-    }, (result){
-      emit(LoginState.loginSuccess(user: result));
+    }, (uid){
+      emit(LoginState.loginSuccess(uid));
       // user.value = result;
     });
   }

@@ -19,7 +19,7 @@ mixin _$AuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(User user) loginSuccess,
+    required TResult Function(String uid) loginSuccess,
     required TResult Function(String message) authSuccess,
     required TResult Function(String failMessage) loginFailed,
     required TResult Function() isAuthPage,
@@ -28,7 +28,7 @@ mixin _$AuthState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(User user)? loginSuccess,
+    TResult? Function(String uid)? loginSuccess,
     TResult? Function(String message)? authSuccess,
     TResult? Function(String failMessage)? loginFailed,
     TResult? Function()? isAuthPage,
@@ -37,7 +37,7 @@ mixin _$AuthState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(User user)? loginSuccess,
+    TResult Function(String uid)? loginSuccess,
     TResult Function(String message)? authSuccess,
     TResult Function(String failMessage)? loginFailed,
     TResult Function()? isAuthPage,
@@ -130,7 +130,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(User user) loginSuccess,
+    required TResult Function(String uid) loginSuccess,
     required TResult Function(String message) authSuccess,
     required TResult Function(String failMessage) loginFailed,
     required TResult Function() isAuthPage,
@@ -142,7 +142,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(User user)? loginSuccess,
+    TResult? Function(String uid)? loginSuccess,
     TResult? Function(String message)? authSuccess,
     TResult? Function(String failMessage)? loginFailed,
     TResult? Function()? isAuthPage,
@@ -154,7 +154,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(User user)? loginSuccess,
+    TResult Function(String uid)? loginSuccess,
     TResult Function(String message)? authSuccess,
     TResult Function(String failMessage)? loginFailed,
     TResult Function()? isAuthPage,
@@ -217,9 +217,7 @@ abstract class _$$LoginSuccessImplCopyWith<$Res> {
           _$LoginSuccessImpl value, $Res Function(_$LoginSuccessImpl) then) =
       __$$LoginSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({User user});
-
-  $UserCopyWith<$Res> get user;
+  $Res call({String uid});
 }
 
 /// @nodoc
@@ -233,36 +231,28 @@ class __$$LoginSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? user = null,
+    Object? uid = null,
   }) {
     return _then(_$LoginSuccessImpl(
-      null == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User,
+      null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res> get user {
-    return $UserCopyWith<$Res>(_value.user, (value) {
-      return _then(_value.copyWith(user: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$LoginSuccessImpl implements _LoginSuccess {
-  const _$LoginSuccessImpl(this.user);
+  const _$LoginSuccessImpl(this.uid);
 
   @override
-  final User user;
+  final String uid;
 
   @override
   String toString() {
-    return 'AuthState.loginSuccess(user: $user)';
+    return 'AuthState.loginSuccess(uid: $uid)';
   }
 
   @override
@@ -270,11 +260,11 @@ class _$LoginSuccessImpl implements _LoginSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoginSuccessImpl &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.uid, uid) || other.uid == uid));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode => Object.hash(runtimeType, uid);
 
   @JsonKey(ignore: true)
   @override
@@ -286,38 +276,38 @@ class _$LoginSuccessImpl implements _LoginSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(User user) loginSuccess,
+    required TResult Function(String uid) loginSuccess,
     required TResult Function(String message) authSuccess,
     required TResult Function(String failMessage) loginFailed,
     required TResult Function() isAuthPage,
   }) {
-    return loginSuccess(user);
+    return loginSuccess(uid);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(User user)? loginSuccess,
+    TResult? Function(String uid)? loginSuccess,
     TResult? Function(String message)? authSuccess,
     TResult? Function(String failMessage)? loginFailed,
     TResult? Function()? isAuthPage,
   }) {
-    return loginSuccess?.call(user);
+    return loginSuccess?.call(uid);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(User user)? loginSuccess,
+    TResult Function(String uid)? loginSuccess,
     TResult Function(String message)? authSuccess,
     TResult Function(String failMessage)? loginFailed,
     TResult Function()? isAuthPage,
     required TResult orElse(),
   }) {
     if (loginSuccess != null) {
-      return loginSuccess(user);
+      return loginSuccess(uid);
     }
     return orElse();
   }
@@ -364,9 +354,9 @@ class _$LoginSuccessImpl implements _LoginSuccess {
 }
 
 abstract class _LoginSuccess implements AuthState {
-  const factory _LoginSuccess(final User user) = _$LoginSuccessImpl;
+  const factory _LoginSuccess(final String uid) = _$LoginSuccessImpl;
 
-  User get user;
+  String get uid;
   @JsonKey(ignore: true)
   _$$LoginSuccessImplCopyWith<_$LoginSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -437,7 +427,7 @@ class _$AuthSuccessImpl implements _AuthSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(User user) loginSuccess,
+    required TResult Function(String uid) loginSuccess,
     required TResult Function(String message) authSuccess,
     required TResult Function(String failMessage) loginFailed,
     required TResult Function() isAuthPage,
@@ -449,7 +439,7 @@ class _$AuthSuccessImpl implements _AuthSuccess {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(User user)? loginSuccess,
+    TResult? Function(String uid)? loginSuccess,
     TResult? Function(String message)? authSuccess,
     TResult? Function(String failMessage)? loginFailed,
     TResult? Function()? isAuthPage,
@@ -461,7 +451,7 @@ class _$AuthSuccessImpl implements _AuthSuccess {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(User user)? loginSuccess,
+    TResult Function(String uid)? loginSuccess,
     TResult Function(String message)? authSuccess,
     TResult Function(String failMessage)? loginFailed,
     TResult Function()? isAuthPage,
@@ -589,7 +579,7 @@ class _$LoginFailedImpl implements _LoginFailed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(User user) loginSuccess,
+    required TResult Function(String uid) loginSuccess,
     required TResult Function(String message) authSuccess,
     required TResult Function(String failMessage) loginFailed,
     required TResult Function() isAuthPage,
@@ -601,7 +591,7 @@ class _$LoginFailedImpl implements _LoginFailed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(User user)? loginSuccess,
+    TResult? Function(String uid)? loginSuccess,
     TResult? Function(String message)? authSuccess,
     TResult? Function(String failMessage)? loginFailed,
     TResult? Function()? isAuthPage,
@@ -613,7 +603,7 @@ class _$LoginFailedImpl implements _LoginFailed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(User user)? loginSuccess,
+    TResult Function(String uid)? loginSuccess,
     TResult Function(String message)? authSuccess,
     TResult Function(String failMessage)? loginFailed,
     TResult Function()? isAuthPage,
@@ -714,7 +704,7 @@ class _$IsAuthPageImpl implements _IsAuthPage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(User user) loginSuccess,
+    required TResult Function(String uid) loginSuccess,
     required TResult Function(String message) authSuccess,
     required TResult Function(String failMessage) loginFailed,
     required TResult Function() isAuthPage,
@@ -726,7 +716,7 @@ class _$IsAuthPageImpl implements _IsAuthPage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(User user)? loginSuccess,
+    TResult? Function(String uid)? loginSuccess,
     TResult? Function(String message)? authSuccess,
     TResult? Function(String failMessage)? loginFailed,
     TResult? Function()? isAuthPage,
@@ -738,7 +728,7 @@ class _$IsAuthPageImpl implements _IsAuthPage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(User user)? loginSuccess,
+    TResult Function(String uid)? loginSuccess,
     TResult Function(String message)? authSuccess,
     TResult Function(String failMessage)? loginFailed,
     TResult Function()? isAuthPage,

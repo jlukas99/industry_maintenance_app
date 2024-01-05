@@ -13,9 +13,13 @@ abstract class UserRepo {
 
 });
 
-  Future<Either<Failure, User>> loginUser({
+  Future<Either<Failure, String>> loginUser({
     required String userPassword,
     required String userLogin,
+});
+
+  Future<Either<Failure, MyUser>> getUser({
+    required String userID,
 });
 
 

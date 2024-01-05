@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:get/get.dart';
 
 import '../../../domain/usecases/create_zone_usecase.dart';
 import '../../../domain/usecases/zone_exists_usecase.dart';
@@ -17,7 +18,7 @@ class AddZoneCubit extends Cubit<AddZoneState> {
     final result = await createZoneUseCase(ZoneParams(zoneName: zoneName, zoneID: '', zonePicture: zonePicture));
     result.fold((failure){
       emit(const AddZoneState.createZoneFailure('Nie można utworzyć nowej strefy'));
-    }, (result){
+    }, (result) async{
       emit(const AddZoneState.createZoneSuccess('Uworzono nową strefę'));
     });
   }
@@ -31,6 +32,8 @@ class AddZoneCubit extends Cubit<AddZoneState> {
         await createNewZone(zoneName: zoneName, zonePicture: zonePicture);
       }else{
         emit(const AddZoneState.zoneExists('Rejon o tej nazwie istnieje'));
+        await Future.delayed(const Duration(seconds: 1));
+        emit(const AddZoneState.initial());
       }
     });
   }

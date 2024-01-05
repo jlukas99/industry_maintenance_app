@@ -1,12 +1,16 @@
 import 'package:get_it/get_it.dart';
+import 'package:industry_maintenance_app/core/my_widgets/myAppBar.dart';
 import 'package:industry_maintenance_app/features/main_page/presentation/bloc/main_page_cubit.dart';
+import 'package:industry_maintenance_app/features/my_app_bar/presentation/app_bar_cubit/app_bar_cubit.dart';
 import 'package:industry_maintenance_app/features/user_auth/data/datasources/user_data_source.dart';
 import 'package:industry_maintenance_app/features/user_auth/data/repositories/user_repo_imp.dart';
 import 'package:industry_maintenance_app/features/user_auth/domain/repositories/user_repo.dart';
 import 'package:industry_maintenance_app/features/user_auth/domain/usecases/create_user_usecase.dart';
+import 'package:industry_maintenance_app/features/user_auth/domain/usecases/get_user.dart';
 import 'package:industry_maintenance_app/features/user_auth/domain/usecases/login_user_usecase.dart';
 import 'package:industry_maintenance_app/features/user_auth/presentation/bloc/auth_cubit/auth_cubit.dart';
 import 'package:industry_maintenance_app/features/user_auth/presentation/pages/auth_page.dart';
+import 'package:industry_maintenance_app/features/user_auth/presentation/pages/login_page.dart';
 import 'package:industry_maintenance_app/features/zone_page/data/datasources/zone_data_source.dart';
 import 'package:industry_maintenance_app/features/zone_page/data/repositories/zone_repo_imp.dart';
 import 'package:industry_maintenance_app/features/zone_page/domain/usecases/create_zone_usecase.dart';
@@ -23,7 +27,13 @@ final depInjection = GetIt.instance;
 
 Future<void> initInjection() async{
   ///auth dependecny injections
-  depInjection.registerFactory(() => MainPageCubit());
+  ///
+
+  depInjection.registerFactory(() => AppBarCubit(getUserUseCase: depInjection()));
+  depInjection.registerLazySingleton(() => GetUserUseCase(repo: depInjection()));
+
+
+  depInjection.registerFactory(() => MainPageCubit(getUserUseCase: depInjection()));
   depInjection.registerFactory(() => LoginCubit(loginUserUseCase: depInjection()));
   depInjection.registerLazySingleton(() =>LoginUserUseCase(repo: depInjection()));
   depInjection.registerLazySingleton(() => CreateUserUseCase(repo: depInjection()));
@@ -32,7 +42,8 @@ Future<void> initInjection() async{
 
   depInjection.registerFactory(() => ZoneCubit(
       deleteZoneUeCase: depInjection(),
-      fetchZoneUseCase: depInjection()));
+      fetchZoneUseCase: depInjection(),
+      getUserUseCase: depInjection()));
   depInjection.registerLazySingleton(() => DeleteZoneUseCase(repo: depInjection()));
   depInjection.registerLazySingleton(() => FetchZoneUseCase(repo: depInjection()));
   depInjection.registerLazySingleton<ZoneRepo>(() => ZoneRepoImp(zoneDataSource: depInjection()));
@@ -41,6 +52,5 @@ Future<void> initInjection() async{
   depInjection.registerFactory(() => AddZoneCubit(createZoneUseCase: depInjection(), zoneExistsUseCase: depInjection()));
   depInjection.registerLazySingleton(() => ZoneExistsUseCase(repo: depInjection()));
   depInjection.registerLazySingleton(() => CreateZoneUseCase(repo: depInjection()));
-
 
 }

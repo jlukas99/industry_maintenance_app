@@ -1,12 +1,19 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooked_bloc/hooked_bloc.dart';
 import 'package:industry_maintenance_app/core/my_widgets/custom_snackbar_widget.dart';
 import 'package:industry_maintenance_app/core/my_widgets/custom_text_form_widget.dart';
+import 'package:industry_maintenance_app/features/main_page/presentation/pages/main_page.dart';
 import 'package:industry_maintenance_app/features/start_page.dart';
 import 'package:industry_maintenance_app/features/user_auth/presentation/bloc/login_cubit/login_cubit.dart';
+import 'package:industry_maintenance_app/features/zone_page/presentation/bloc/zone_cubit.dart';
+
+import '../../../../core/my_widgets/myAppBar.dart';
+import '../../domain/entities/user.dart';
 
 class LoginPage extends HookWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -17,17 +24,19 @@ class LoginPage extends HookWidget {
     final snackBar = MySnackBar();
     final loginController = TextEditingController();
     final passwordController = TextEditingController();
-    // final cubit = ModalRoute.of(context)?.settings.arguments as LoginCubit;
 
-    final loginCubit = useBloc<LoginCubit>();
+    final loginCubit = useBloc<LoginCubit>(closeOnDispose: false);
     final loginState = useBlocBuilder(loginCubit);
     useBlocListener<LoginCubit, LoginState>(loginCubit, (loginCubit, current, context) {
       current.whenOrNull(
-        loginFailure: (value) => snackBar.showSnackBar(value, context),
-        loginSuccess: (user) async{
-          await Future.delayed(const Duration(seconds: 2));
-          Navigator.of(context).pushNamed('/main_page', arguments: loginCubit);
-        }
+          loginFailure: (value) => snackBar.showSnackBar(value, context),
+          loginSuccess: (value) async{
+            await Future.delayed(const Duration(seconds: 2));
+            if(context.mounted){
+              context.goNamed('main_page',
+                  pathParameters: {'uid': value});
+            }
+          }
 
       );
     });
@@ -53,16 +62,18 @@ class LoginPage extends HookWidget {
                 obscure: true),
             const SizedBox(height: 40.0,),
             loginState.when(
-                initial: () => CupertinoButton(onPressed: (){
-                  loginCubit.loginUser(userPassword: passwordController.text, userLogin: loginController.text);
-                }, child: const Text('Zaloguj')),
+                initial: () =>
+                    CupertinoButton(onPressed: () {
+                      loginCubit.loginUser(userPassword: passwordController.text, userLogin: loginController.text);
+                    }, child: const Text('Zaloguj')),
                 loginProgress: () => const CircularProgressIndicator(),
-                loginSuccess: (_) => const Icon(Icons.check_circle, color: Colors.lightGreen, size: 60.0,),
+                loginSuccess: (_) => const Icon(Icons.check_circle, color: Colors.lightGreen, size: 40.0,),
                 loginFailure: (_) => const SizedBox()),
-
           ],
         ),
       ),
     );
   }
 }
+
+

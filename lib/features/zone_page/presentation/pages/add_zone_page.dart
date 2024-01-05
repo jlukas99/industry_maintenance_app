@@ -25,10 +25,10 @@ class AddZonePage extends HookWidget {
         zoneExists: (message) => snackBar.showSnackBar(message, context),
         zoneExistsError: (message) => snackBar.showSnackBar(message, context),
         createZoneFailure: (message) => snackBar.showSnackBar(message, context),
-        // createZoneSuccess: (message) async{
-        //   await Future.delayed(const Duration(seconds: 2));
-        //   Navigator.of(context).pushNamed('/factory_page',);
-        // }
+        createZoneSuccess: (message) async{
+          await Future.delayed(const Duration(seconds: 2));
+          Navigator.of(context).pushNamed('/factory_page',);
+        }
       );
     });
 
@@ -47,7 +47,10 @@ class AddZonePage extends HookWidget {
                 }),
               ],
             ),
-            createZoneSuccess: (message) => Center(child: Column(children: [
+            createZoneSuccess: (message) => Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
               const Icon(Icons.check_circle, size: 80, color: Colors.greenAccent,),
               Text(message),
             ],)),

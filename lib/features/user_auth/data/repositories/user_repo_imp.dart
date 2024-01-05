@@ -30,7 +30,7 @@ class UserRepoImp implements UserRepo{
   }
 
   @override
-  Future<Either<Failure, User>> loginUser({
+  Future<Either<Failure, String>> loginUser({
     required String userPassword, 
     required String userLogin}) async{
     try{
@@ -41,6 +41,18 @@ class UserRepoImp implements UserRepo{
     }
 
     // TODO: implement loginUser
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, MyUser>> getUser({required String userID}) async{
+    try{
+      final result = await dataSource.getUser(userID: userID);
+      return Right(result);
+    }catch(error){
+      return const Left(GettingUserFailure(failureMessage: 'Unable to get user'));
+    }
+    // TODO: implement getUser
     throw UnimplementedError();
   }
 }

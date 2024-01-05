@@ -30,8 +30,8 @@ class AuthCubit extends Cubit<AuthState> {
             userLogin: login));
     result.fold((failure){
       emit(const AuthState.loginFailed('Unable to login user'));
-    }, (result){
-      emit(AuthState.loginSuccess(result));
+    }, (uid){
+      emit(AuthState.loginSuccess(uid));
     });
   }
 

@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooked_bloc/hooked_bloc.dart';
 import 'package:industry_maintenance_app/core/dependency_injection.dart';
 import 'package:industry_maintenance_app/features/user_auth/domain/entities/user.dart';
@@ -36,7 +37,7 @@ class StartPage extends HookWidget {
               color: Colors.black,
               onPressed: () {
                 // Get.toNamed('/login_page');
-                Navigator.of(context).pushNamed('/login_page');
+                context.go('/login_page');
                 // context.read<CreateUserCredentialsBloc>().add(const CreateUserCredentialsEvent.started());
               },
               child: const Text('Logowanie / Rejestracja'),
