@@ -4,6 +4,7 @@ import 'package:industry_maintenance_app/core/failure/failure.dart';
 import 'package:industry_maintenance_app/core/usecases/usecases.dart';
 import 'package:industry_maintenance_app/features/department_page/domain/repositories/department_repo.dart';
 
+
 class AddDepartmentUseCase implements UseCaseWithParams<void, AddDepartmentParams>{
   final DepartmentRepo repo;
   const AddDepartmentUseCase({required this.repo});
