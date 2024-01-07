@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:industry_maintenance_app/features/department_page/presentation/pages/department_page.dart';
 import 'package:industry_maintenance_app/features/main_page/presentation/pages/main_page.dart';
 import 'package:industry_maintenance_app/features/start_page.dart';
 import 'package:industry_maintenance_app/features/zone_page/presentation/pages/add_zone_page.dart';
@@ -47,8 +48,23 @@ class MyPageRouter{
           ),
           GoRoute(
             name: 'add_factory_zone', // Optional, add name to your routes. Allows you navigate by name instead of path
-            path: '/add_zone_page',
-            builder: (context, state) => const AddZonePage(),
+            path: '/add_zone_page/:uid',
+            builder: (context, state) {
+              final userID = state.pathParameters['uid'];
+              return AddZonePage(
+                uid: userID);
+              },
+          ),
+          GoRoute(
+            name: 'department_page', // Optional, add name to your routes. Allows you navigate by name instead of path
+            path: '/department/:uid/:zoneName',
+            builder: (context, state) {
+              final userID = state.pathParameters['uid'];
+              final zoneName = state.pathParameters['zoneName'];
+              return DepartmentPage(
+                  zoneName: zoneName!,
+                  uid: userID);
+            },
           ),
         ]);
 

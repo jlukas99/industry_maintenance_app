@@ -59,4 +59,16 @@ class ZoneRepoImp implements ZoneRepo{
     throw UnimplementedError();
   }
 
+  @override
+  Future<Either<Failure, Stream<List<FactoryZone>>>> findZone({required String zoneName}) async{
+    try{
+      final result = zoneDataSource.findZone(zoneName: zoneName);
+      return Right(result);
+    }catch(error){
+      return const Left(FindZoneFailure(failureMessage: 'Unable to find zone'));
+    }
+    // TODO: implement findZone
+    throw UnimplementedError();
+  }
+
 }

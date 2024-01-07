@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get/get.dart';
 
+import '../../../../user_auth/domain/usecases/get_user.dart';
 import '../../../domain/usecases/create_zone_usecase.dart';
 import '../../../domain/usecases/zone_exists_usecase.dart';
 
@@ -11,7 +12,11 @@ part 'add_zone_cubit.freezed.dart';
 class AddZoneCubit extends Cubit<AddZoneState> {
   final ZoneExistsUseCase zoneExistsUseCase;
   final CreateZoneUseCase createZoneUseCase;
-  AddZoneCubit({required this.createZoneUseCase, required this.zoneExistsUseCase}) : super(const AddZoneState.initial());
+  AddZoneCubit({
+    required this.createZoneUseCase,
+    required this.zoneExistsUseCase,
+  }) : super(const AddZoneState.initial());
+
 
   Future<void> createNewZone({zoneName, zonePicture}) async{
     emit(const AddZoneState.addingNewZone());

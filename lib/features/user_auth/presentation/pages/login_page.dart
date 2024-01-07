@@ -12,7 +12,6 @@ import 'package:industry_maintenance_app/features/start_page.dart';
 import 'package:industry_maintenance_app/features/user_auth/presentation/bloc/login_cubit/login_cubit.dart';
 import 'package:industry_maintenance_app/features/zone_page/presentation/bloc/zone_cubit.dart';
 
-import '../../../../core/my_widgets/myAppBar.dart';
 import '../../domain/entities/user.dart';
 
 class LoginPage extends HookWidget {

@@ -23,6 +23,8 @@ abstract class UserDataSource{
   Future<MyUser> getUser({
     required String userID,
 });
+
+  Future<void> logOutUser();
   
 }
 
@@ -69,5 +71,12 @@ class UserDataSourceImp implements UserDataSource{
     return user;
     // TODO: implement getUser
     throw UnimplementedError();
+  }
+
+  @override
+  Future<void> logOutUser() async{
+    await FirebaseAuth.instance.signOut();
+    // TODO: implement logOutUser
+    // throw UnimplementedError();
   }
 }

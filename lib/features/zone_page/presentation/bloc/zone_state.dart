@@ -4,21 +4,14 @@ part of 'zone_cubit.dart';
 class ZoneState with _$ZoneState {
   const factory ZoneState.initial() = _Initial;
 
+  ///page is looking for zones
   const factory ZoneState.lookingForZone() =_LookingForZone;
+  ///page has no data (zones are empty)
   const factory ZoneState.zonePageIsEmpty(String message) = _ZonePageIsEmpty;
-  const factory ZoneState.zoneStateHasData(List<FactoryZone> zones) = _ZoneStateHasData;
+  ///page has an error
   const factory ZoneState.zonePageError(String message) = _ZonePageError;
-  const factory ZoneState.zonePageUserInit(MyUser user) = _ZonePageUserInit;
-
-
-  ///dlaczego nie mogę użyć User.empty() jako default?
-  ///
-  /// czy w stanie init (na start) powinienem zawrzeć wszystkie zmienne, ktore potrzebuję zaraz po załadowaniu strony?
-
+  ///zone initialized (we have zones and user is logged in)
   const factory ZoneState.zonePageInitialized({List<FactoryZone>? zones, MyUser? user}) = _ZonePageInitialized;
-
-
-  const factory ZoneState.addZoneButtonPressed() = _AddZoneButtonPressed;
-
-
+  ///looking for zone state
+  const factory ZoneState.searchForZone({List<FactoryZone>? zones}) = _SearchForZone;
 }

@@ -23,36 +23,45 @@ class AuthTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Form(
-          child: TextFormField(
-            obscureText: obscure,
-            autocorrect: false,
-            maxLines: 1,
-            decoration: InputDecoration(
-              focusedBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.teal, width: 2)),
-              // errorText: errorText,
-              hintText: hintText,
-              icon: icon,
-            ),
-            key: Key(keyName),
-            controller: controller,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: TextFormField(
+              obscureText: obscure,
+              autocorrect: false,
+              maxLines: 1,
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide:
+                  const BorderSide(width: 1, color: Colors.white70), //<-- SEE HERE
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                focusedBorder: OutlineInputBorder(borderSide: const BorderSide(
+                    color: Colors.white70, width: 5), borderRadius: BorderRadius.circular(20.0)),
+                // errorText: errorText,
+                hintText: hintText,
+                // icon: icon,
+              ),
+              key: Key(keyName),
+              controller: controller,
 
-            // onChanged: (value) {
-            //   if (keyName == 'userName') {
-            //     context.read<AuthCubit>().userNameChanged(controller.text);
-            //   } else if (keyName == 'userSurName') {
-            //     context.read<AuthCubit>().userSurNameChanged(controller.text);
-            //   } else if (keyName == 'userLogin') {
-            //     context.read<AuthCubit>().loginChanged(controller.text);
-            //   } else if (keyName == 'userLoginPassword') {
-            //     context.read<AuthCubit>().passwordChanged(controller.text);
-            //   }else if (keyName == 'userAuthPassword') {
-            //     context.read<AuthCubit>().authPasswordChanged(controller.text);
-            //   }else if (keyName == 'confirmPassword') {
-            //     context.read<AuthCubit>().confirmPasswordChanged(controller.text);
-            //   }else if (keyName == 'userAuthLogin') {
-            //     context.read<AuthCubit>().authLoginChanged(controller.text);
-            //   }
-            // },
+              // onChanged: (value) {
+              //   if (keyName == 'userName') {
+              //     context.read<AuthCubit>().userNameChanged(controller.text);
+              //   } else if (keyName == 'userSurName') {
+              //     context.read<AuthCubit>().userSurNameChanged(controller.text);
+              //   } else if (keyName == 'userLogin') {
+              //     context.read<AuthCubit>().loginChanged(controller.text);
+              //   } else if (keyName == 'userLoginPassword') {
+              //     context.read<AuthCubit>().passwordChanged(controller.text);
+              //   }else if (keyName == 'userAuthPassword') {
+              //     context.read<AuthCubit>().authPasswordChanged(controller.text);
+              //   }else if (keyName == 'confirmPassword') {
+              //     context.read<AuthCubit>().confirmPasswordChanged(controller.text);
+              //   }else if (keyName == 'userAuthLogin') {
+              //     context.read<AuthCubit>().authLoginChanged(controller.text);
+              //   }
+              // },
+            ),
           ),
     );
   }

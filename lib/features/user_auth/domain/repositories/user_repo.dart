@@ -22,5 +22,6 @@ abstract class UserRepo {
     required String userID,
 });
 
+  Future<Either<Failure,void>> logOutUser();
 
 }

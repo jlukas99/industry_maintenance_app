@@ -19,6 +19,10 @@ abstract class ZoneDataSource{
 });
 
   Stream<List<FactoryZone>> fetchZones();
+  
+  Stream<List<FactoryZone>> findZone({
+    required String zoneName,
+});
 
 }
 
@@ -61,6 +65,18 @@ class ZoneDataSourceImp implements ZoneDataSource{
       return snapshot.docs.map((doc) => FactoryZone.fromJson(doc.data())).toList();
     });
     // TODO: implement fetchZones
+    // throw UnimplementedError();
+  }
+
+  @override
+  Stream<List<FactoryZone>> findZone({required String zoneName}) async*{
+    yield* FIREBASE_PATH.collection('zones').where('zoneName', isGreaterThanOrEqualTo: zoneName).
+        where('zoneName', isLessThanOrEqualTo: '${zoneName}zz').
+    snapshots().
+    map((snapshot){
+      return snapshot.docs.map((doc) => FactoryZone.fromJson(doc.data())).toList();
+    });
+    // TODO: implement findZone
     // throw UnimplementedError();
   }
 }

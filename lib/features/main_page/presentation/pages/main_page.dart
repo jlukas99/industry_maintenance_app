@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooked_bloc/hooked_bloc.dart';
+import 'package:industry_maintenance_app/core/my_widgets/my_end_drawer/presentation/pages/my_end_drawer.dart';
 import 'package:industry_maintenance_app/features/main_page/presentation/bloc/main_page_cubit.dart';
-import 'package:industry_maintenance_app/features/my_app_bar/presentation/pages/my_app_bar.dart';
+
+import '../../../../core/my_widgets/my_app_bar/presentation/pages/my_app_bar.dart';
+
 
 
 class MainPage extends HookWidget {
@@ -13,6 +16,8 @@ class MainPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
 
+    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
     ///main page CUBIT
     final mainPageCubit = useBloc<MainPageCubit>();
     final mainPageState = useBlocBuilder(mainPageCubit);
@@ -20,7 +25,7 @@ class MainPage extends HookWidget {
       current.whenOrNull();
     });
 
-    ///init on page start [initMainPage] => UseEffect is to init on start
+    ///UseEffect is to init mainPageCubit.initMainPage on start
     useEffect((){
       mainPageCubit.initMainPage(userID: uid);
       return null;
@@ -29,8 +34,18 @@ class MainPage extends HookWidget {
     );
 
     return Scaffold(
+      key: _scaffoldKey,
+      endDrawer: const MyEndDrawer(),
+      // Drawer(
+      //   elevation: 16.0,
+      //   child: Container(width: 30, height: 100, color: Colors.white12,),
+      // ),
       appBar: PreferredSize(preferredSize: const Size.fromHeight(70.0),
-        child:CustomAppBar(uid: uid)
+        child:CustomAppBar(
+          scaffoldKey: _scaffoldKey,
+          uid: uid,
+          appBarTitle: 'STRONA GŁÓWNA',
+          autoLeading: false,)
       ),
       body: Center(
         child:

@@ -55,4 +55,16 @@ class UserRepoImp implements UserRepo{
     // TODO: implement getUser
     throw UnimplementedError();
   }
+
+  @override
+  Future<Either<Failure, void>> logOutUser() async{
+    try{
+      final result = await dataSource.logOutUser();
+      return Right(result);
+    }catch(error){
+      return const Left(LogOutUserFailure(failureMessage: 'Unable to logout user'));
+    }
+    // TODO: implement logOutUser
+    throw UnimplementedError();
+  }
 }

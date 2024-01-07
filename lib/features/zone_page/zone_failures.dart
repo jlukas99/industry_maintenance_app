@@ -15,3 +15,7 @@ class CheckZoneExistFailure extends Failure{
 class FetchZonesFailure extends Failure{
   const FetchZonesFailure({required super.failureMessage});
 }
+
+class FindZoneFailure extends Failure{
+  const FindZoneFailure({required super.failureMessage});
+}

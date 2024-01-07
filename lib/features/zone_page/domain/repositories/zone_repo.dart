@@ -23,4 +23,8 @@ abstract class ZoneRepo{
 
   Future<Either<Failure, Stream<List<FactoryZone>>>> fetchZones();
 
+  Future<Either<Failure, Stream<List<FactoryZone>>>> findZone({
+    required String zoneName,
+});
+
 }
