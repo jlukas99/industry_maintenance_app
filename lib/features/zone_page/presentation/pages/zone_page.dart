@@ -5,6 +5,7 @@ import 'package:hooked_bloc/hooked_bloc.dart';
 import 'package:industry_maintenance_app/core/my_widgets/custom_text_form_widget.dart';
 import 'package:industry_maintenance_app/core/my_widgets/my_end_drawer/presentation/pages/my_end_drawer.dart';
 import 'package:industry_maintenance_app/features/zone_page/presentation/bloc/zone_cubit.dart';
+import '../../../../core/my_widgets/myDrawer.dart';
 import '../../../../core/my_widgets/my_app_bar/presentation/pages/my_app_bar.dart';
 import '../../domain/entities/zone.dart';
 
@@ -18,12 +19,16 @@ class ZonePage extends HookWidget {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     final _zoneSearchText = useTextEditingController();
 
+    // print(GoRouterState.of(context).path);
+
     final zoneCubit = useBloc<ZoneCubit>();
     final zoneState = useBlocBuilder(zoneCubit);
     useBlocListener<ZoneCubit, ZoneState>(zoneCubit, (bloc, current, context) {
       current.whenOrNull(
       );
     });
+
+    final _factoryPath = ['rejony'];
 
     /// call on start page initZonePage function from zoneCubit to fetch zones and get user
     useEffect(() {
@@ -35,6 +40,7 @@ class ZonePage extends HookWidget {
 
     return Scaffold(
       key: _scaffoldKey,
+      drawer: MyDrawer(factoryPath: _factoryPath, uid: uid!),
       endDrawer: const MyEndDrawer(),
       bottomNavigationBar: BottomAppBar(
         height: 80.0,
@@ -83,7 +89,7 @@ class ZonePage extends HookWidget {
                                   FactoryZone zone = zoneList[index];
                                   return GestureDetector(
                                     onTap: (){
-                                      context.pushNamed('department_page', pathParameters: {'uid': uid!, 'zoneName' : zone.zoneName});
+                                      context.goNamed('department_page', pathParameters: {'uid': uid!, 'zoneName' : zone.zoneName});
                                       zoneCubit.initZonePage(userID: uid);
                                     },
                                     child: Card(child: Row(
@@ -113,7 +119,7 @@ class ZonePage extends HookWidget {
                         FactoryZone zone = zoneList[index];
                         return GestureDetector(
                           onTap: (){
-                            context.pushNamed('department_page', pathParameters: {'uid': uid!, 'zoneName' : zone.zoneName});
+                            context.goNamed('department_page', pathParameters: {'uid': uid!, 'zoneName' : zone.zoneName});
                           },
                           child: Card(child: Row(
                             children: [

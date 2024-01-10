@@ -42,9 +42,9 @@ class DepartmentRepoImp implements DepartmentRepo{
   }
 
   @override
-  Future<Either<Failure, Stream<List<Department>>>> fetchDepartments() async{
+  Future<Either<Failure, Stream<List<Department>>>> fetchDepartments({required String zoneName}) async{
     try{
-      final result = dataSource.fetchDepartments();
+      final result = dataSource.fetchDepartments(zoneName: zoneName);
       return Right(result);
     }catch(error){
       return const Left(FetchDepartmentFailure(failureMessage: 'Unable to fetch departments'));

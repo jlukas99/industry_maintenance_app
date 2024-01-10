@@ -1,5 +1,11 @@
 import 'package:get_it/get_it.dart';
 import 'package:industry_maintenance_app/core/my_widgets/my_end_drawer/presentation/bloc/end_drawer_cubit.dart';
+import 'package:industry_maintenance_app/features/department_page/data/datasources/department_data_source.dart';
+import 'package:industry_maintenance_app/features/department_page/data/repositories/department_repo_imp.dart';
+import 'package:industry_maintenance_app/features/department_page/domain/repositories/department_repo.dart';
+import 'package:industry_maintenance_app/features/department_page/domain/usecases/fetch_departments_usecase.dart';
+import 'package:industry_maintenance_app/features/department_page/domain/usecases/find_department_usecase.dart';
+import 'package:industry_maintenance_app/features/department_page/presentation/department_cubit/department_cubit.dart';
 import 'package:industry_maintenance_app/features/main_page/presentation/bloc/main_page_cubit.dart';
 import 'package:industry_maintenance_app/features/user_auth/data/datasources/user_data_source.dart';
 import 'package:industry_maintenance_app/features/user_auth/data/repositories/user_repo_imp.dart';
@@ -61,5 +67,14 @@ Future<void> initInjection() async{
       zoneExistsUseCase: depInjection()));
   depInjection.registerLazySingleton(() => ZoneExistsUseCase(repo: depInjection()));
   depInjection.registerLazySingleton(() => CreateZoneUseCase(repo: depInjection()));
+
+  depInjection.registerFactory(() => DepartmentCubit(
+    findDepartmentUseCase: depInjection(),
+    getUserUseCase: depInjection(),
+    fetchDepartmentsUseCase: depInjection(), ));
+  depInjection.registerLazySingleton(() => FindDepartmentUseCase(repo: depInjection()));
+  depInjection.registerLazySingleton(() => FetchDepartmentsUseCase(repo: depInjection()));
+  depInjection.registerLazySingleton<DepartmentRepo>(() => DepartmentRepoImp(dataSource: depInjection()));
+  depInjection.registerLazySingleton<DepartmentDataSource>(() => DepartmentDataSourceImp());
 
 }

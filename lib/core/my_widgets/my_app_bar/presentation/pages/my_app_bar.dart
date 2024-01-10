@@ -44,9 +44,10 @@ class CustomAppBar extends HookWidget {
           onTap: () async{
             scaffoldKey.currentState!.openEndDrawer();
           },
-          child: CircleAvatar(radius: 30,
-              child:
-              appBarState.whenOrNull(
+          child: CircleAvatar(
+              backgroundColor: Colors.teal,
+              radius: 30,
+              child: appBarState.whenOrNull(
               userLoggedIn: (user) => Text(user.userName[0] + user.userSurName[0])
           )),
         ),

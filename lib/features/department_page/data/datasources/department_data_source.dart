@@ -15,7 +15,9 @@ abstract class DepartmentDataSource{
     required String departmentID,
 });
 
-  Stream<List<Department>> fetchDepartments();
+  Stream<List<Department>> fetchDepartments({
+    required String zoneName,
+});
 
   Stream<List<Department>> findDepartment({
     required String departmentName,
@@ -50,8 +52,8 @@ class DepartmentDataSourceImp implements DepartmentDataSource{
   }
 
   @override
-  Stream<List<Department>> fetchDepartments() async*{
-    yield* FIREBASE_PATH.collection('departments').snapshots().map((snapshot) =>
+  Stream<List<Department>> fetchDepartments({required String zoneName}) async*{
+    yield* FIREBASE_PATH.collection('departments').where('zoneName', isEqualTo: zoneName).snapshots().map((snapshot) =>
         snapshot.docs.map((doc) => Department.fromJson(doc.data())).toList());
     // TODO: implement fetchDepartments
     // throw UnimplementedError();

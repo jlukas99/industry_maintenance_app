@@ -81,12 +81,20 @@ class DrawerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoButton(
-      // color: Colors.white60,
-        child: Text(buttonText.toUpperCase()), onPressed: (){
-          if(key == const Key('logOut_button')){
-            endDrawerCubit.logOutUser();
-          }
-    });
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: CupertinoButton(
+        // color: Colors.white60,
+          child: Row(
+            children: [
+              Flexible(flex: 1, child: Text(buttonText.toUpperCase(),
+                style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w200, color: Colors.white),)),
+            ],
+          ), onPressed: (){
+            if(key == const Key('logOut_button')){
+              endDrawerCubit.logOutUser();
+            }
+      }),
+    );
   }
 }

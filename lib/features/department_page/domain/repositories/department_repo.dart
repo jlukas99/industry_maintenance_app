@@ -17,7 +17,9 @@ abstract class DepartmentRepo{
     required String departmentID,
 });
 
-  Future<Either<Failure, Stream<List<Department>>>> fetchDepartments();
+  Future<Either<Failure, Stream<List<Department>>>> fetchDepartments({
+    required String zoneName,
+});
 
   Future<Either<Failure, Stream<List<Department>>>> findDepartment({
     required String departmentName,
