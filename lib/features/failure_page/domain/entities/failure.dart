@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:industry_maintenance_app/features/equipment_page/domain/entities/equipment.dart';
 part 'failure.freezed.dart';
 part 'failure.g.dart';
 @freezed

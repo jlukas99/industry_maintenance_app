@@ -20,6 +20,7 @@ class DepartmentPage extends HookWidget {
     final departmentCubit = useBloc<DepartmentCubit>();
     final departmentState = useBlocBuilder(departmentCubit);
     useBlocListener<DepartmentCubit, DepartmentState>(departmentCubit, (bloc, current, context) { });
+    // useActionListener(departmentCubit, (action) => null); // state bez rebuild ekranu
 
     final _departmentSearchText = useTextEditingController();
 
@@ -74,7 +75,7 @@ class DepartmentPage extends HookWidget {
                 Column(
                   children: [
                     Expanded(flex:1,child:
-                    FindZoneTextField(departmentCubit: departmentCubit, departmentSearchText: _departmentSearchText)),
+                    FindTextField(onChanged: (value) => departmentCubit.findDepartment(value), departmentSearchText: _departmentSearchText)),
                     Expanded(
                       flex:7,
                       child: ListView.builder(
@@ -82,19 +83,20 @@ class DepartmentPage extends HookWidget {
                         itemCount: departmentList.length,
                         itemBuilder: (BuildContext context, int index) {
                           Department department = departmentList[index];
-                          return GestureDetector(
-                            onTap: (){
-                              // context.pushNamed('department_page', pathParameters: {'uid': uid!, 'zoneName' : zone.zoneName});
-                              departmentCubit.departmentInit(userID: uid, zoneName: zoneName);
-                            },
-                            child: Card(child: Row(
-                              children: [
-                                const SizedBox(width: 10.0,),
-                                const CircleAvatar(backgroundColor: Colors.white12, radius: 55, child: Icon(Icons.electric_bolt_outlined, size: 60,),),
-                                const SizedBox(width: 20.0,),
-                                Text(department.departmentName.toUpperCase(), style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w200),),
-                              ],),),
-                          );
+                          return MyGestureDetector(name: department.departmentName, onTap: (){departmentCubit.departmentInit(userID: uid, zoneName: zoneName);});
+                          //   GestureDetector(
+                          //   onTap: (){
+                          //     // context.pushNamed('department_page', pathParameters: {'uid': uid!, 'zoneName' : zone.zoneName});
+                          //     departmentCubit.departmentInit(userID: uid, zoneName: zoneName);
+                          //   },
+                          //   child: Card(child: Row(
+                          //     children: [
+                          //       const SizedBox(width: 10.0,),
+                          //       const CircleAvatar(backgroundColor: Colors.white12, radius: 55, child: Icon(Icons.electric_bolt_outlined, size: 60,),),
+                          //       const SizedBox(width: 20.0,),
+                          //       Text(department.departmentName.toUpperCase(), style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w200),),
+                          //     ],),),
+                          // );
                         },
                       ),
                     ),
@@ -112,18 +114,7 @@ class DepartmentPage extends HookWidget {
               itemCount: departmentList!.length,
               itemBuilder: (BuildContext context, int index) {
                 Department department = departmentList[index];
-                return GestureDetector(
-                  onTap: (){
-                    // context.pushNamed('department_page', pathParameters: {'uid': uid!, 'zoneName' : zone.zoneName});
-                  },
-                  child: Card(child: Row(
-                    children: [
-                      const SizedBox(width: 10.0,),
-                      const CircleAvatar(backgroundColor: Colors.white12, radius: 55, child: Icon(Icons.electric_bolt_outlined, size: 60,),),
-                      const SizedBox(width: 20.0,),
-                      Text(department.departmentName.toUpperCase(), style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w200),),
-                    ],),),
-                );
+                return MyGestureDetector(name: department.departmentName, onTap: (){},);
               },
             ),
             departmentPageEmpty: (value) => Center(child: Text(value),),
@@ -134,21 +125,51 @@ class DepartmentPage extends HookWidget {
   }
 }
 
-class FindZoneTextField extends StatelessWidget {
-  const FindZoneTextField({
+class MyGestureDetector extends StatelessWidget {
+  const MyGestureDetector({
     super.key,
-    required this.departmentCubit,
+    // required this.department,
+    required this.name,
+    required this.onTap,
+  });
+
+  // final Department department;
+  final String name;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      //     (){
+      //   // context.pushNamed('department_page', pathParameters: {'uid': uid!, 'zoneName' : zone.zoneName});
+      // },
+      child: Card(child: Row(
+        children: [
+          const SizedBox(width: 10.0,),
+          const CircleAvatar(backgroundColor: Colors.white12, radius: 55, child: Icon(Icons.electric_bolt_outlined, size: 60,),),
+          const SizedBox(width: 20.0,),
+          Text(name.toUpperCase(), style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w200),),
+        ],),),
+    );
+  }
+}
+
+class FindTextField extends StatelessWidget {
+  const FindTextField({
+    super.key,
+    required this.onChanged,
     required TextEditingController departmentSearchText,
   }) : _departmentSearchText = departmentSearchText;
 
-  final DepartmentCubit departmentCubit;
+  final void Function(String) onChanged;
   final TextEditingController _departmentSearchText;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       autofocus: true,
-      onChanged: (value) => departmentCubit.findDepartment(value),
+      onChanged: onChanged,
       controller: _departmentSearchText,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
