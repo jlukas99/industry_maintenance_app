@@ -1043,3 +1043,298 @@ abstract class _SearchForZone implements ZoneState {
   _$$SearchForZoneImplCopyWith<_$SearchForZoneImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+mixin _$ZoneAction {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String path) openPage,
+    required TResult Function() toggleSearch,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String path)? openPage,
+    TResult? Function()? toggleSearch,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String path)? openPage,
+    TResult Function()? toggleSearch,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OpenPage value) openPage,
+    required TResult Function(_ToggleSearch value) toggleSearch,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_OpenPage value)? openPage,
+    TResult? Function(_ToggleSearch value)? toggleSearch,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OpenPage value)? openPage,
+    TResult Function(_ToggleSearch value)? toggleSearch,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ZoneActionCopyWith<$Res> {
+  factory $ZoneActionCopyWith(
+          ZoneAction value, $Res Function(ZoneAction) then) =
+      _$ZoneActionCopyWithImpl<$Res, ZoneAction>;
+}
+
+/// @nodoc
+class _$ZoneActionCopyWithImpl<$Res, $Val extends ZoneAction>
+    implements $ZoneActionCopyWith<$Res> {
+  _$ZoneActionCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$OpenPageImplCopyWith<$Res> {
+  factory _$$OpenPageImplCopyWith(
+          _$OpenPageImpl value, $Res Function(_$OpenPageImpl) then) =
+      __$$OpenPageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String path});
+}
+
+/// @nodoc
+class __$$OpenPageImplCopyWithImpl<$Res>
+    extends _$ZoneActionCopyWithImpl<$Res, _$OpenPageImpl>
+    implements _$$OpenPageImplCopyWith<$Res> {
+  __$$OpenPageImplCopyWithImpl(
+      _$OpenPageImpl _value, $Res Function(_$OpenPageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? path = null,
+  }) {
+    return _then(_$OpenPageImpl(
+      null == path
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$OpenPageImpl implements _OpenPage {
+  const _$OpenPageImpl(this.path);
+
+  @override
+  final String path;
+
+  @override
+  String toString() {
+    return 'ZoneAction.openPage(path: $path)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OpenPageImpl &&
+            (identical(other.path, path) || other.path == path));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, path);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OpenPageImplCopyWith<_$OpenPageImpl> get copyWith =>
+      __$$OpenPageImplCopyWithImpl<_$OpenPageImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String path) openPage,
+    required TResult Function() toggleSearch,
+  }) {
+    return openPage(path);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String path)? openPage,
+    TResult? Function()? toggleSearch,
+  }) {
+    return openPage?.call(path);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String path)? openPage,
+    TResult Function()? toggleSearch,
+    required TResult orElse(),
+  }) {
+    if (openPage != null) {
+      return openPage(path);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OpenPage value) openPage,
+    required TResult Function(_ToggleSearch value) toggleSearch,
+  }) {
+    return openPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_OpenPage value)? openPage,
+    TResult? Function(_ToggleSearch value)? toggleSearch,
+  }) {
+    return openPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OpenPage value)? openPage,
+    TResult Function(_ToggleSearch value)? toggleSearch,
+    required TResult orElse(),
+  }) {
+    if (openPage != null) {
+      return openPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OpenPage implements ZoneAction {
+  const factory _OpenPage(final String path) = _$OpenPageImpl;
+
+  String get path;
+  @JsonKey(ignore: true)
+  _$$OpenPageImplCopyWith<_$OpenPageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ToggleSearchImplCopyWith<$Res> {
+  factory _$$ToggleSearchImplCopyWith(
+          _$ToggleSearchImpl value, $Res Function(_$ToggleSearchImpl) then) =
+      __$$ToggleSearchImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ToggleSearchImplCopyWithImpl<$Res>
+    extends _$ZoneActionCopyWithImpl<$Res, _$ToggleSearchImpl>
+    implements _$$ToggleSearchImplCopyWith<$Res> {
+  __$$ToggleSearchImplCopyWithImpl(
+      _$ToggleSearchImpl _value, $Res Function(_$ToggleSearchImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ToggleSearchImpl implements _ToggleSearch {
+  const _$ToggleSearchImpl();
+
+  @override
+  String toString() {
+    return 'ZoneAction.toggleSearch()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ToggleSearchImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String path) openPage,
+    required TResult Function() toggleSearch,
+  }) {
+    return toggleSearch();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String path)? openPage,
+    TResult? Function()? toggleSearch,
+  }) {
+    return toggleSearch?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String path)? openPage,
+    TResult Function()? toggleSearch,
+    required TResult orElse(),
+  }) {
+    if (toggleSearch != null) {
+      return toggleSearch();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OpenPage value) openPage,
+    required TResult Function(_ToggleSearch value) toggleSearch,
+  }) {
+    return toggleSearch(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_OpenPage value)? openPage,
+    TResult? Function(_ToggleSearch value)? toggleSearch,
+  }) {
+    return toggleSearch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OpenPage value)? openPage,
+    TResult Function(_ToggleSearch value)? toggleSearch,
+    required TResult orElse(),
+  }) {
+    if (toggleSearch != null) {
+      return toggleSearch(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToggleSearch implements ZoneAction {
+  const factory _ToggleSearch() = _$ToggleSearchImpl;
+}

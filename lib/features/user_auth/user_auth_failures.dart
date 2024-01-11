@@ -1,17 +1,17 @@
 import 'package:industry_maintenance_app/core/failure/failure.dart';
 
-class CreateUserFailure extends Failure{
+class CreateUserFailure extends Failure {
   const CreateUserFailure({required super.failureMessage});
 }
 
-class LoginUserFailure extends Failure{
+class LoginUserFailure extends Failure {
   const LoginUserFailure({required super.failureMessage});
 }
 
-class GettingUserFailure extends Failure{
+class GettingUserFailure extends Failure {
   const GettingUserFailure({required super.failureMessage});
 }
 
-class LogOutUserFailure extends Failure{
+class LogOutUserFailure extends Failure {
   const LogOutUserFailure({required super.failureMessage});
 }

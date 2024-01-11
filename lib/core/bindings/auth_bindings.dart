@@ -1,11 +1,3 @@
-import 'package:get/get.dart';
-import 'package:industry_maintenance_app/features/user_auth/data/datasources/user_data_source.dart';
-import 'package:industry_maintenance_app/features/user_auth/data/repositories/user_repo_imp.dart';
-import 'package:industry_maintenance_app/features/user_auth/domain/repositories/user_repo.dart';
-import 'package:industry_maintenance_app/features/user_auth/domain/usecases/create_user_usecase.dart';
-import 'package:industry_maintenance_app/features/user_auth/domain/usecases/login_user_usecase.dart';
-
-
 // class AuthBindings extends Bindings{
 //   @override
 //   void dependencies() {
@@ -17,4 +9,3 @@ import 'package:industry_maintenance_app/features/user_auth/domain/usecases/logi
 //     // TODO: implement dependencies
 //   }
 //
-// }

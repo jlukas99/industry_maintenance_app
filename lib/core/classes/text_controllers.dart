@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AuthTextControllers {
-
   final TextEditingController userNameController = TextEditingController();
   final TextEditingController userSurNameController = TextEditingController();
 
   final TextEditingController authPasswordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   final TextEditingController loginPasswordController = TextEditingController();
 
   final TextEditingController loginController = TextEditingController();
@@ -21,5 +21,4 @@ class AuthTextControllers {
     confirmPasswordController.clear();
     loginAuthController.clear();
   }
-
 }

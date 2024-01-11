@@ -1,9 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:industry_maintenance_app/features/equipment_page/domain/entities/equipment.dart';
 part 'failure.freezed.dart';
 part 'failure.g.dart';
+
 @freezed
-class EquipmentFailure with _$EquipmentFailure{
+class EquipmentFailure with _$EquipmentFailure {
   const factory EquipmentFailure({
     required String equipmentID,
     required String failurePriority,
@@ -15,8 +15,10 @@ class EquipmentFailure with _$EquipmentFailure{
     required DateTime repairFinishTime,
     required String failureRemarks,
     required String totalFailurePeriodTime,
-    required String failureStatus, //i.e. not started, started, finished, during repair, canceled
+    required String
+        failureStatus, //i.e. not started, started, finished, during repair, canceled
+  }) = _EquipmentFailure;
 
-}) = _EquipmentFailure;
-  factory EquipmentFailure.fromJson(Map<String, dynamic>? json) => _$EquipmentFailureFromJson(json!);
+  factory EquipmentFailure.fromJson(Map<String, dynamic>? json) =>
+      _$EquipmentFailureFromJson(json!);
 }

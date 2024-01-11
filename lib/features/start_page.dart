@@ -1,21 +1,11 @@
-import 'dart:ffi';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hooked_bloc/hooked_bloc.dart';
-import 'package:industry_maintenance_app/core/dependency_injection.dart';
-import 'package:industry_maintenance_app/features/user_auth/domain/entities/user.dart';
-import 'package:industry_maintenance_app/features/user_auth/presentation/bloc/auth_cubit/auth_cubit.dart';
-import 'package:industry_maintenance_app/features/user_auth/presentation/bloc/login_cubit/login_cubit.dart';
-import 'package:industry_maintenance_app/features/user_auth/presentation/pages/login_page.dart';
 
 class StartPage extends HookWidget {
-  const StartPage({Key? key}) : super(key: key);
+  const StartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +32,7 @@ class StartPage extends HookWidget {
               },
               child: const Text('Logowanie / Rejestracja'),
 
-            )
+            ),
                 // : SizedBox(),
           ],
         ),

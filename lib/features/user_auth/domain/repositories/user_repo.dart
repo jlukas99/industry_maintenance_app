@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
+import 'package:industry_maintenance_app/core/failure/failure.dart';
 import 'package:industry_maintenance_app/features/user_auth/domain/entities/user.dart';
-import '../../../../core/failure/failure.dart';
 
 abstract class UserRepo {
   const UserRepo();
@@ -10,18 +10,16 @@ abstract class UserRepo {
     required String userSurName,
     required String userPassword,
     required String userLogin,
-
-});
+  });
 
   Future<Either<Failure, String>> loginUser({
     required String userPassword,
     required String userLogin,
-});
+  });
 
   Future<Either<Failure, MyUser>> getUser({
     required String userID,
-});
+  });
 
-  Future<Either<Failure,void>> logOutUser();
-
+  Future<Either<Failure, void>> logOutUser();
 }
